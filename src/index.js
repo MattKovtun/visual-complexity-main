@@ -2,6 +2,7 @@ import World from './World';
 
 
 const gameOrder = () => {
+    // TODO : generate points before pressing start
     let resetButton = document.querySelector(".page__start-button");
     let world = new World(document);
     resetButton.addEventListener("click", () => {

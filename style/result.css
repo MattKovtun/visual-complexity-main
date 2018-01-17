@@ -1,6 +1,6 @@
-
 .result {
     text-align: center;
+    margin-top: 3px;
 }
 
 .result__good {
@@ -18,9 +18,11 @@
     padding-right: 2px;
 
 }
+
 .result__missing-numbers_bad {
     background-color: #e74c3c;
 }
+
 .result__missing-numbers_good {
     background-color: #3498db;
 

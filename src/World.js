@@ -1,6 +1,7 @@
 //TODO: rename entry point
 
-import MyNumber from "./Number";
+import MyNumber from "./MyNumber";
+import MyNumberSVG from "./MyNumberSVG";
 import {getRandom} from "./utils";
 import GoodAlgo from './GoodAlgo';
 import {K, MARGINFROMSIDES, NUMBEROFNUMBERS} from './consts';
@@ -12,8 +13,10 @@ class World {
     // TODO: pass DOM node, instead of selector
     constructor(document) {
         this.algorithms = [
-            new GoodAlgo(document.querySelector(".page__content"), document.querySelector(".result"), "good"),
-            new BadAlgo(document.querySelector(".page__content"), document.querySelector(".result"), "bad"),
+            // new GoodAlgo(document.querySelector(".page__content"), document.querySelector(".result"), "good"),
+            // new BadAlgo(document.querySelector(".page__content"), document.querySelector(".result"), "bad"),
+            new BadAlgo(".page__content", document.querySelector(".result"), "bad"),
+            new GoodAlgo(".page__content", document.querySelector(".result"), "good"),
         ];
     }
 
@@ -29,7 +32,7 @@ class World {
         this.numbers = new Array(NUMBEROFNUMBERS)
             .fill()
             .map((el, i) =>
-                new MyNumber(getRandom(MARGINFROMSIDES, this.algorithms[0].width - MARGINFROMSIDES), getRandom(MARGINFROMSIDES, this.algorithms[0].height - MARGINFROMSIDES), getRandom(1, NUMBEROFNUMBERS + 1)));
+                new MyNumberSVG(getRandom(MARGINFROMSIDES, this.algorithms[0].width - MARGINFROMSIDES), getRandom(MARGINFROMSIDES, this.algorithms[0].height - MARGINFROMSIDES), getRandom(1, NUMBEROFNUMBERS + 1)));
         this.numbers.map((el) => {
             this.algorithms.map((elem) => {
                 // console.log(elem.context);

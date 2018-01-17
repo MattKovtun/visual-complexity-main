@@ -1,8 +1,9 @@
 import {sleepFor} from "./utils";
 import {K, NUMBEROFNUMBERS} from './consts';
 import Algo from './Algo';
+import AlgoSVG from './AlgoSVG';
 
-class BadAlgo extends Algo {
+class BadAlgo extends AlgoSVG {
     constructor(algoDOMNode,resDOMNode, modifier) {
         super(algoDOMNode, resDOMNode, modifier);
     }
@@ -20,7 +21,6 @@ class BadAlgo extends Algo {
             }
             if (!exist) {
                 missingNumbers.push(i);
-                // console.log(i);
             }
         }
         return missingNumbers;
