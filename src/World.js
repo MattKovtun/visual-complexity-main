@@ -32,7 +32,7 @@ class World {
                 new MyNumber(getRandom(MARGINFROMSIDES, this.algorithms[0].width - MARGINFROMSIDES), getRandom(MARGINFROMSIDES, this.algorithms[0].height - MARGINFROMSIDES), getRandom(1, NUMBEROFNUMBERS + 1)));
         this.numbers.map((el) => {
             this.algorithms.map((elem) => {
-                console.log(elem.context);
+                // console.log(elem.context);
                 el.draw(elem.context);
             })
         });

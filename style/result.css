@@ -1,0 +1,27 @@
+
+.result {
+    text-align: center;
+}
+
+.result__good {
+
+}
+
+.result__bad {
+
+}
+
+.result__missing-numbers {
+    margin-left: 3px;
+    border-radius: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
+
+}
+.result__missing-numbers_bad {
+    background-color: #e74c3c;
+}
+.result__missing-numbers_good {
+    background-color: #3498db;
+
+}

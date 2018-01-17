@@ -87,13 +87,16 @@ const sleepFor = (sleepDuration) => new Promise((res, rej) => setTimeout(res, sl
 
 "use strict";
 const NUMBEROFNUMBERS = 50;
-/* harmony export (immutable) */ __webpack_exports__["c"] = NUMBEROFNUMBERS;
+/* harmony export (immutable) */ __webpack_exports__["d"] = NUMBEROFNUMBERS;
 
 const K = 0.5;
 /* harmony export (immutable) */ __webpack_exports__["a"] = K;
 
 const MARGINFROMSIDES = 10;
 /* harmony export (immutable) */ __webpack_exports__["b"] = MARGINFROMSIDES;
+
+const NUMBERFILLSTYLE = `#1abc9c`;
+/* harmony export (immutable) */ __webpack_exports__["c"] = NUMBERFILLSTYLE;
 
 
 /***/ }),
@@ -149,14 +152,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const gameOrder = () => {
-    let resetButton = document.querySelector(".start-button");
+    let resetButton = document.querySelector(".page__start-button");
     let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](document);
     resetButton.addEventListener("click", () => {
-        resetButton.classList.add("start-button_disabled");
+        resetButton.classList.add("page__start-button_disabled");
         world.clearArea()
             .generatePoints()
             .action()
-            .then(() => resetButton.classList.remove("start-button_disabled"));
+            .then(() => resetButton.classList.remove("page__start-button_disabled"));
     }, false);
 
 };
@@ -202,13 +205,13 @@ class World {
     }
 
     generatePoints() {
-        this.numbers = new Array(__WEBPACK_IMPORTED_MODULE_3__consts__["c" /* NUMBEROFNUMBERS */])
+        this.numbers = new Array(__WEBPACK_IMPORTED_MODULE_3__consts__["d" /* NUMBEROFNUMBERS */])
             .fill()
             .map((el, i) =>
-                new __WEBPACK_IMPORTED_MODULE_0__Number__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_3__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_3__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_3__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_3__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(1, __WEBPACK_IMPORTED_MODULE_3__consts__["c" /* NUMBEROFNUMBERS */] + 1)));
+                new __WEBPACK_IMPORTED_MODULE_0__Number__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_3__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_3__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_3__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_3__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(1, __WEBPACK_IMPORTED_MODULE_3__consts__["d" /* NUMBEROFNUMBERS */] + 1)));
         this.numbers.map((el) => {
             this.algorithms.map((elem) => {
-                console.log(elem.context);
+                // console.log(elem.context);
                 el.draw(elem.context);
             })
         });
@@ -246,6 +249,9 @@ class World {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__consts__ = __webpack_require__(1);
+
+
 class MyNumber {
     // TODO: make good undraw function
     constructor(x, y, number) {
@@ -256,13 +262,13 @@ class MyNumber {
 
     getPath() {
         const path = new Path2D();
-        path.arc(this.x, this.y, 7.5*2, 0, Math.PI * 2, true); // Outer circle
+        path.arc(this.x, this.y, 5.5 * 2, 0, Math.PI * 2, true); // Outer circle
         return path;
     }
 
     draw(ctx) {
         ctx.save();
-        ctx.fillStyle = `rgba(39, 174, 96, 1.0)`;
+        ctx.fillStyle = __WEBPACK_IMPORTED_MODULE_0__consts__["c" /* NUMBERFILLSTYLE */];
         ctx.fill(this.getPath());
         ctx.fillStyle = "black";
         ctx.fillText(this.number, this.x - 6, this.y + 3);
@@ -302,8 +308,8 @@ class GoodAlgo extends __WEBPACK_IMPORTED_MODULE_2__Algo__["a" /* default */] {
 
     async perform(numbers) {
         let missingNumbers = [];
-        const countNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */] + 1).fill(0);
-        const indexNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */] + 1).fill().map(() => new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */] + 1));
+        const countNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */] + 1).fill(0);
+        const indexNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */] + 1).fill().map(() => new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */] + 1));
         for (let i = 0; i < numbers.length; ++i) {
             await Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* sleepFor */])(__WEBPACK_IMPORTED_MODULE_1__consts__["a" /* K */]);
             countNumbers[numbers[i].number]++;
@@ -347,9 +353,9 @@ class BadAlgo extends __WEBPACK_IMPORTED_MODULE_2__Algo__["a" /* default */] {
 
     async perform(numbers) {
         let missingNumbers = [];
-        for (let i = 1; i <= __WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */]; ++i) {
+        for (let i = 1; i <= __WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */]; ++i) {
             let exist = false;
-            for (let j = 0; j < __WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */]; ++j) {
+            for (let j = 0; j < __WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */]; ++j) {
                 await Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* sleepFor */])(__WEBPACK_IMPORTED_MODULE_1__consts__["a" /* K */]);
                 if (i === numbers[j].number) {
                     numbers[j].undraw(this.context);
