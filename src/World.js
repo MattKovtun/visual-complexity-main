@@ -7,7 +7,7 @@ import {K, MARGINFROMSIDES, NUMBEROFNUMBERS} from './consts';
 import BadAlgo from "./BadAlgo";
 
 
-class Complexity {
+class World {
     // TODO: rename Complexity
     // TODO: pass DOM node, instead of selector
     constructor(document) {
@@ -61,17 +61,5 @@ class Complexity {
 }
 
 
-const gameOrder = () => {
-    let resetButton = document.querySelector(".start-button");
-    let game = new Complexity(document);
-    resetButton.addEventListener("click", () => {
-        resetButton.classList.add("start-button_disabled");
-        game.clearArea()
-            .generatePoints()
-            .action()
-            .then(() => resetButton.classList.remove("start-button_disabled"));
-    }, false);
 
-};
-
-gameOrder();
+export default World;

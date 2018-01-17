@@ -144,11 +144,36 @@ class Algo {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Number__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__World__ = __webpack_require__(4);
+
+
+
+const gameOrder = () => {
+    let resetButton = document.querySelector(".start-button");
+    let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](document);
+    resetButton.addEventListener("click", () => {
+        resetButton.classList.add("start-button_disabled");
+        world.clearArea()
+            .generatePoints()
+            .action()
+            .then(() => resetButton.classList.remove("start-button_disabled"));
+    }, false);
+
+};
+
+
+gameOrder();
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Number__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__GoodAlgo__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__GoodAlgo__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__consts__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BadAlgo__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BadAlgo__ = __webpack_require__(7);
 //TODO: rename entry point
 
 
@@ -158,7 +183,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-class Complexity {
+class World {
     // TODO: rename Complexity
     // TODO: pass DOM node, instead of selector
     constructor(document) {
@@ -212,23 +237,12 @@ class Complexity {
 }
 
 
-const gameOrder = () => {
-    let resetButton = document.querySelector(".start-button");
-    let game = new Complexity(document);
-    resetButton.addEventListener("click", () => {
-        resetButton.classList.add("start-button_disabled");
-        game.clearArea()
-            .generatePoints()
-            .action()
-            .then(() => resetButton.classList.remove("start-button_disabled"));
-    }, false);
 
-};
+/* harmony default export */ __webpack_exports__["a"] = (World);
 
-gameOrder();
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -270,7 +284,7 @@ class MyNumber {
 /* harmony default export */ __webpack_exports__["a"] = (MyNumber);
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -315,7 +329,7 @@ class GoodAlgo extends __WEBPACK_IMPORTED_MODULE_2__Algo__["a" /* default */] {
 /* harmony default export */ __webpack_exports__["a"] = (GoodAlgo);
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
