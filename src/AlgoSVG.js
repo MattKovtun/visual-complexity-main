@@ -22,7 +22,7 @@ class AlgoSVG {
     }
 
 
-    async perform(numbers) {
+    async perform(numbers, visualiser) {
 
     }
 

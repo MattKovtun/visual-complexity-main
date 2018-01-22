@@ -1,6 +1,5 @@
 //TODO: rename entry point
 import MyNumber from "./MyNumber";
-import MyNumberSVG from "./MyNumberSVG";
 import {getRandom} from "./utils";
 import GoodAlgo from './GoodAlgo';
 import BadAlgo from "./BadAlgo";
@@ -11,8 +10,9 @@ import {K, MARGINFROMSIDES, NUMBEROFNUMBERS} from './consts';
 class World {
     // TODO: rename Complexity
     // TODO: pass DOM node, instead of selector
-    constructor(algorithms) {
+    constructor(algorithms, visualiser) {
         this.algorithms = algorithms;
+        this.visualiser = visualiser;
     }
 
     clearArea() {
@@ -27,12 +27,12 @@ class World {
         this.numbers = new Array(NUMBEROFNUMBERS)
             .fill()
             .map((el, i) =>
-                new MyNumberSVG(getRandom(MARGINFROMSIDES, this.algorithms[0].width - MARGINFROMSIDES), getRandom(MARGINFROMSIDES, this.algorithms[0].height - MARGINFROMSIDES), getRandom(1, NUMBEROFNUMBERS + 1)));
+                new MyNumber(getRandom(MARGINFROMSIDES, this.algorithms[0].width - MARGINFROMSIDES), getRandom(MARGINFROMSIDES, this.algorithms[0].height - MARGINFROMSIDES), getRandom(1, NUMBEROFNUMBERS + 1)));
                 // new MyNumberSVG(getRandom(this.algorithms[0].left, this.algorithms[0].right), getRandom(this.algorithms[0].top, this.algorithms[0].bottom), getRandom(1, NUMBEROFNUMBERS + 1)));
         this.numbers.map((el) => {
             this.algorithms.map((elem) => {
                 // console.log(elem.context);
-                el.draw(elem.context);
+                this.visualiser.draw(elem.context, el);
             })
         });
         return this;
@@ -48,7 +48,7 @@ class World {
 
     async action() {
         await Promise
-            .all(this.algorithms.map(alg => alg.perform(this.numbers)
+            .all(this.algorithms.map(alg => alg.perform(this.numbers, this.visualiser)
                 .then(value => {
                         let elem = document.querySelector(".result__" + alg.modifier);
                         return value

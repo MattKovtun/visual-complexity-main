@@ -8,7 +8,7 @@ class GoodAlgo extends AlgoSVG {
         super(algoDOMNode, resDOMNode, modifier);
     }
 
-    async perform(numbers) {
+    async perform(numbers, visualiser) {
         let missingNumbers = [];
         const countNumbers = new Array(NUMBEROFNUMBERS + 1).fill(0);
         const indexNumbers = new Array(NUMBEROFNUMBERS + 1).fill().map(() => new Array(NUMBEROFNUMBERS + 1));
@@ -24,7 +24,7 @@ class GoodAlgo extends AlgoSVG {
             }
             else {
                 indexNumbers[i].map((el) => {
-                    numbers[el].undraw(this.context);
+                    visualiser.undraw(this.context, numbers[el]);
                 });
             }
         }

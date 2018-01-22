@@ -1701,7 +1701,7 @@ Diagram.prototype = {
 
 "use strict";
 const NUMBEROFNUMBERS = 50;
-/* harmony export (immutable) */ __webpack_exports__["d"] = NUMBEROFNUMBERS;
+/* harmony export (immutable) */ __webpack_exports__["c"] = NUMBEROFNUMBERS;
 
 const K = 0.5;
 /* harmony export (immutable) */ __webpack_exports__["a"] = K;
@@ -1710,7 +1710,7 @@ const MARGINFROMSIDES = 1;
 /* harmony export (immutable) */ __webpack_exports__["b"] = MARGINFROMSIDES;
 
 const NUMBERFILLSTYLE = `#1abc9c`;
-/* harmony export (immutable) */ __webpack_exports__["c"] = NUMBERFILLSTYLE;
+/* unused harmony export NUMBERFILLSTYLE */
 
 
 /***/ }),
@@ -5062,10 +5062,10 @@ class GoodAlgo extends __WEBPACK_IMPORTED_MODULE_3__AlgoSVG__["a" /* default */]
         super(algoDOMNode, resDOMNode, modifier);
     }
 
-    async perform(numbers) {
+    async perform(numbers, visualiser) {
         let missingNumbers = [];
-        const countNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */] + 1).fill(0);
-        const indexNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */] + 1).fill().map(() => new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */] + 1));
+        const countNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */] + 1).fill(0);
+        const indexNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */] + 1).fill().map(() => new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */] + 1));
         for (let i = 0; i < numbers.length; ++i) {
             await Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* sleepFor */])(__WEBPACK_IMPORTED_MODULE_1__consts__["a" /* K */]);
             countNumbers[numbers[i].number]++;
@@ -5078,7 +5078,7 @@ class GoodAlgo extends __WEBPACK_IMPORTED_MODULE_3__AlgoSVG__["a" /* default */]
             }
             else {
                 indexNumbers[i].map((el) => {
-                    numbers[el].undraw(this.context);
+                    visualiser.undraw(this.context, numbers[el]);
                 });
             }
         }
@@ -5119,7 +5119,7 @@ class Algo {
     }
 
 
-    async perform(numbers) {
+    async perform(numbers, visualiser) {
 
     }
 
@@ -5161,7 +5161,7 @@ class AlgoSVG {
     }
 
 
-    async perform(numbers) {
+    async perform(numbers, visualiser) {
 
     }
 
@@ -5193,14 +5193,14 @@ class BadAlgo extends __WEBPACK_IMPORTED_MODULE_3__AlgoSVG__["a" /* default */] 
         super(algoDOMNode, resDOMNode, modifier);
     }
 
-    async perform(numbers) {
+    async perform(numbers, visualiser) {
         let missingNumbers = [];
-        for (let i = 1; i <= __WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */]; ++i) {
+        for (let i = 1; i <= __WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */]; ++i) {
             let exist = false;
-            for (let j = 0; j < __WEBPACK_IMPORTED_MODULE_1__consts__["d" /* NUMBEROFNUMBERS */]; ++j) {
+            for (let j = 0; j < __WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */]; ++j) {
                 await Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* sleepFor */])(__WEBPACK_IMPORTED_MODULE_1__consts__["a" /* K */]);
                 if (i === numbers[j].number) {
-                    numbers[j].undraw(this.context);
+                    visualiser.undraw(this.context, numbers[j]);
                     exist = true;
                 }
             }
@@ -9646,6 +9646,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__BadAlgo__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_d3__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NumberVisualiserSVG__ = __webpack_require__(472);
+
+
 
 
 
@@ -9659,7 +9662,7 @@ const gameOrder = () => {
         new __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__["a" /* default */](__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */](".page__content"), document.querySelector(".result"), "good"),
     ];
     let resetButton = document.querySelector(".page__start-button");
-    let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](algorithms);
+    let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](algorithms, new __WEBPACK_IMPORTED_MODULE_4__NumberVisualiserSVG__["a" /* default */]());
     resetButton.addEventListener("click", () => {
         resetButton.classList.add("page__start-button_disabled");
         world
@@ -9680,13 +9683,11 @@ gameOrder();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MyNumber__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MyNumberSVG__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__GoodAlgo__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BadAlgo__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__consts__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__GoodAlgo__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__BadAlgo__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__consts__ = __webpack_require__(33);
 //TODO: rename entry point
-
 
 
 
@@ -9698,8 +9699,9 @@ gameOrder();
 class World {
     // TODO: rename Complexity
     // TODO: pass DOM node, instead of selector
-    constructor(algorithms) {
+    constructor(algorithms, visualiser) {
         this.algorithms = algorithms;
+        this.visualiser = visualiser;
     }
 
     clearArea() {
@@ -9711,15 +9713,15 @@ class World {
     }
 
     generatePoints() {
-        this.numbers = new Array(__WEBPACK_IMPORTED_MODULE_5__consts__["d" /* NUMBEROFNUMBERS */])
+        this.numbers = new Array(__WEBPACK_IMPORTED_MODULE_4__consts__["c" /* NUMBEROFNUMBERS */])
             .fill()
             .map((el, i) =>
-                new __WEBPACK_IMPORTED_MODULE_1__MyNumberSVG__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_2__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_5__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_5__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_2__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_5__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_5__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_2__utils__["a" /* getRandom */])(1, __WEBPACK_IMPORTED_MODULE_5__consts__["d" /* NUMBEROFNUMBERS */] + 1)));
+                new __WEBPACK_IMPORTED_MODULE_0__MyNumber__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_4__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_4__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_4__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_4__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(1, __WEBPACK_IMPORTED_MODULE_4__consts__["c" /* NUMBEROFNUMBERS */] + 1)));
                 // new MyNumberSVG(getRandom(this.algorithms[0].left, this.algorithms[0].right), getRandom(this.algorithms[0].top, this.algorithms[0].bottom), getRandom(1, NUMBEROFNUMBERS + 1)));
         this.numbers.map((el) => {
             this.algorithms.map((elem) => {
                 // console.log(elem.context);
-                el.draw(elem.context);
+                this.visualiser.draw(elem.context, el);
             })
         });
         return this;
@@ -9735,7 +9737,7 @@ class World {
 
     async action() {
         await Promise
-            .all(this.algorithms.map(alg => alg.perform(this.numbers)
+            .all(this.algorithms.map(alg => alg.perform(this.numbers, this.visualiser)
                 .then(value => {
                         let elem = document.querySelector(".result__" + alg.modifier);
                         return value
@@ -9758,85 +9760,19 @@ class World {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__consts__ = __webpack_require__(33);
-
-
 class MyNumber {
-    // TODO: make good undraw function
     constructor(x, y, number) {
         this.x = x;
         this.y = y;
         this.number = number;
     }
-
-    getPath() {
-        const path = new Path2D();
-        path.arc(this.x, this.y, 5.5 * 2, 0, Math.PI * 2, true); // Outer circle
-        return path;
-    }
-
-    draw(ctx) {
-        ctx.save();
-        ctx.fillStyle = __WEBPACK_IMPORTED_MODULE_0__consts__["c" /* NUMBERFILLSTYLE */];
-        ctx.fill(this.getPath());
-        ctx.fillStyle = "black";
-        ctx.fillText(this.number, this.x - 6, this.y + 3);
-        ctx.restore();
-    }
-
-    undraw(ctx) {
-        ctx.save();
-        ctx.globalCompositeOperation = 'destination-out';
-        ctx.fillStyle = `black`;
-        ctx.fill(this.getPath());
-        ctx.fillText(this.number, this.x - 6, this.y + 3);
-        ctx.restore();
-
-    }
 }
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (MyNumber);
+/* harmony default export */ __webpack_exports__["a"] = (MyNumber);
 
 /***/ }),
-/* 180 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class MyNumberSVG {
-    // TODO: make good undraw function
-    constructor(x, y, number) {
-        this.x = x;
-        this.y = y;
-        this.number = number;
-    }
-
-
-    draw(ctx) {
-        ctx
-            .append("circle")
-            .attr("cx", this.x)
-            .attr("cy", this.y)
-            .attr("r", 11)
-            .attr("class", "number_circle");
-
-        ctx
-            .append("text")
-            .attr("x", this.x)
-            .attr("y", this.y)
-            .attr("dx", -9)
-            .attr("dy", 7)
-            .attr("class", "number")
-            .text(this.number);
-    }
-    undraw(ctx) {ctx.select(`circle[cx="${this.x}"][cy="${this.y}"]`).remove();}
-
-}
-
-
-/* harmony default export */ __webpack_exports__["a"] = (MyNumberSVG);
-
-/***/ }),
+/* 180 */,
 /* 181 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -23010,6 +22946,36 @@ function nopropagation() {
   __WEBPACK_IMPORTED_MODULE_0_d3_selection__["b" /* event */].stopImmediatePropagation();
 });
 
+
+/***/ }),
+/* 472 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class NumberVisualiserSVG {
+    draw(ctx, number) {
+        ctx
+            .append("circle")
+            .attr("cx", number.x)
+            .attr("cy", number.y)
+            .attr("r", 11)
+            .attr("class", "number_circle");
+
+        ctx
+            .append("text")
+            .attr("x", number.x)
+            .attr("y", number.y)
+            .attr("dx", -9)
+            .attr("dy", 7)
+            .attr("class", "number")
+            .text(number.number);
+    }
+
+    undraw(ctx, number) {ctx.select(`circle[cx="${number.x}"][cy="${number.y}"]`).remove();}
+}
+
+
+/* harmony default export */ __webpack_exports__["a"] = (NumberVisualiserSVG);
 
 /***/ })
 /******/ ]);

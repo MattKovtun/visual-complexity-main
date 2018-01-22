@@ -8,14 +8,14 @@ class BadAlgo extends AlgoSVG {
         super(algoDOMNode, resDOMNode, modifier);
     }
 
-    async perform(numbers) {
+    async perform(numbers, visualiser) {
         let missingNumbers = [];
         for (let i = 1; i <= NUMBEROFNUMBERS; ++i) {
             let exist = false;
             for (let j = 0; j < NUMBEROFNUMBERS; ++j) {
                 await sleepFor(K);
                 if (i === numbers[j].number) {
-                    numbers[j].undraw(this.context);
+                    visualiser.undraw(this.context, numbers[j]);
                     exist = true;
                 }
             }

@@ -2,6 +2,8 @@ import World from './World';
 import GoodAlgo from './GoodAlgo';
 import BadAlgo from "./BadAlgo";
 import * as d3 from "d3";
+import NumberVisualiserSVG from './NumberVisualiserSVG';
+
 
 
 const gameOrder = () => {
@@ -11,7 +13,7 @@ const gameOrder = () => {
         new GoodAlgo(d3.select(".page__content"), document.querySelector(".result"), "good"),
     ];
     let resetButton = document.querySelector(".page__start-button");
-    let world = new World(algorithms);
+    let world = new World(algorithms, new NumberVisualiserSVG());
     resetButton.addEventListener("click", () => {
         resetButton.classList.add("page__start-button_disabled");
         world

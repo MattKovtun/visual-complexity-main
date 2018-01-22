@@ -22,7 +22,7 @@ class Algo {
     }
 
 
-    async perform(numbers) {
+    async perform(numbers, visualiser) {
 
     }
 
