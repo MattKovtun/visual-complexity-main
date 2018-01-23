@@ -15,7 +15,7 @@ class World {
 
     clearArea() {
         this.algorithms.map((el) => {
-            el.prepareAreas();
+            el.clearAlgoArea();
         });
         return this;
 
@@ -45,6 +45,7 @@ class World {
     }
 
     async action() {
+        this.algorithms.map((el) => el.clearResultArea());
         await Promise
             .all(this.algorithms.map(alg => alg.perform(this.numbers, this.visualiser)
                 .then(value => {

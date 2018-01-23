@@ -5055,7 +5055,7 @@ class AlgoSVG {
             .append("svg")
             .attr("class", "content__algo content__algo_" + this.modifier)
             .attr("preserveAspectRatio", "xMinYMin");
-            // .attr("viewBox", `0 0 ${this.height} ${this.width}`);
+        // .attr("viewBox", `0 0 ${this.height} ${this.width}`);
         const {height, width} = document.querySelector(".content__algo").getBoundingClientRect();
         this.height = height;
         this.width = width;
@@ -5066,8 +5066,12 @@ class AlgoSVG {
 
     }
 
-    prepareAreas() {
+    clearAlgoArea() {
         document.querySelector(".content__algo_" + this.modifier).innerHTML = "";
+
+    }
+
+    clearResultArea() {
         document.querySelector(".result__" + this.modifier).innerHTML = "";
     }
 
@@ -9573,7 +9577,7 @@ class World {
 
     clearArea() {
         this.algorithms.map((el) => {
-            el.prepareAreas();
+            el.clearAlgoArea();
         });
         return this;
 
@@ -9603,6 +9607,7 @@ class World {
     }
 
     async action() {
+        this.algorithms.map((el) => el.clearResultArea());
         await Promise
             .all(this.algorithms.map(alg => alg.perform(this.numbers, this.visualiser)
                 .then(value => {
