@@ -1,7 +1,6 @@
 import {sleepFor} from "./utils";
 import {K, NUMBEROFNUMBERS} from './consts';
-import Algo from './Algo';
-import AlgoSVG from './AlgoSVG';
+import AlgoSVG from './SVG/AlgoSVG';
 
 class BadAlgo extends AlgoSVG {
     constructor(algoDOMNode,resDOMNode, modifier) {

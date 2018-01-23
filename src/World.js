@@ -1,8 +1,6 @@
 //TODO: rename entry point
 import MyNumber from "./MyNumber";
 import {getRandom} from "./utils";
-import GoodAlgo from './GoodAlgo';
-import BadAlgo from "./BadAlgo";
 import {K, MARGINFROMSIDES, NUMBEROFNUMBERS} from './consts';
 
 

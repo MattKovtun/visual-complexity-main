@@ -2,7 +2,7 @@ import World from './World';
 import GoodAlgo from './GoodAlgo';
 import BadAlgo from "./BadAlgo";
 import * as d3 from "d3";
-import NumberVisualiserSVG from './NumberVisualiserSVG';
+import NumberVisualiserSVG from './SVG/NumberVisualiserSVG';
 
 
 

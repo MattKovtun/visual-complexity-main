@@ -5050,14 +5050,12 @@ function clipEdges(x0, y0, x1, y1) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__consts__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Algo__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__AlgoSVG__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__SVG_AlgoSVG__ = __webpack_require__(473);
 
 
 
 
-
-class GoodAlgo extends __WEBPACK_IMPORTED_MODULE_3__AlgoSVG__["a" /* default */] {
+class GoodAlgo extends __WEBPACK_IMPORTED_MODULE_2__SVG_AlgoSVG__["a" /* default */] {
     constructor(algoDOMNode,resDOMNode, modifier) {
         super(algoDOMNode, resDOMNode, modifier);
     }
@@ -5091,104 +5089,20 @@ class GoodAlgo extends __WEBPACK_IMPORTED_MODULE_3__AlgoSVG__["a" /* default */]
 /* harmony default export */ __webpack_exports__["a"] = (GoodAlgo);
 
 /***/ }),
-/* 93 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class Algo {
-    constructor(algoDOMNode,resDOMNode, modifier) {
-        this.modifier = modifier;
-        this.rect = document.createElement("canvas");
-        this.rect.classList.add("content__algo");
-        this.rect.classList.add("content__algo_" + modifier);
-        algoDOMNode.appendChild(this.rect);
-        this.context = this.rect.getContext('2d');
-        this.height = this.rect.getBoundingClientRect().height;
-        this.width = this.rect.getBoundingClientRect().width;
-        this.rect.height = this.height;
-        this.rect.width = this.width;
-        this.resultArea = document.createElement("div");
-        this.resultArea.classList.add("result__" + modifier);
-        resDOMNode.appendChild(this.resultArea);
-
-    }
-
-    prepareAreas() {
-        document.querySelector(".content__algo_" + this.modifier).getContext('2d').clearRect(0, 0, this.width, this.height);
-        document.querySelector(".result__" + this.modifier).innerHTML = "";
-    }
-
-
-    async perform(numbers, visualiser) {
-
-    }
-
-
-    createResultingArea(domNode) {
-
-    }
-}
-
-
-/* unused harmony default export */ var _unused_webpack_default_export = (Algo);
-
-/***/ }),
-/* 94 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class AlgoSVG {
-    constructor(algoDOMNode, resDOMNode, modifier) {
-        this.modifier = modifier;
-        this.context = algoDOMNode// ".page__content"
-            .append("svg")
-            .attr("class", "content__algo content__algo_" + this.modifier)
-            .attr("preserveAspectRatio", "xMinYMin");
-            // .attr("viewBox", `0 0 ${this.height} ${this.width}`);
-        const {height, width} = document.querySelector(".content__algo").getBoundingClientRect();
-        this.height = height;
-        this.width = width;
-
-        this.resultArea = document.createElement("div");
-        this.resultArea.classList.add("result__" + modifier);
-        resDOMNode.appendChild(this.resultArea);
-
-    }
-
-    prepareAreas() {
-
-        document.querySelector(".result__" + this.modifier).innerHTML = "";
-    }
-
-
-    async perform(numbers, visualiser) {
-
-    }
-
-
-    createResultingArea(domNode) {
-
-    }
-}
-
-
-/* harmony default export */ __webpack_exports__["a"] = (AlgoSVG);
-
-/***/ }),
+/* 93 */,
+/* 94 */,
 /* 95 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__consts__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Algo__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__AlgoSVG__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__SVG_AlgoSVG__ = __webpack_require__(473);
 
 
 
 
-
-class BadAlgo extends __WEBPACK_IMPORTED_MODULE_3__AlgoSVG__["a" /* default */] {
+class BadAlgo extends __WEBPACK_IMPORTED_MODULE_2__SVG_AlgoSVG__["a" /* default */] {
     constructor(algoDOMNode,resDOMNode, modifier) {
         super(algoDOMNode, resDOMNode, modifier);
     }
@@ -9646,7 +9560,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__BadAlgo__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_d3__ = __webpack_require__(181);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NumberVisualiserSVG__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SVG_NumberVisualiserSVG__ = __webpack_require__(474);
 
 
 
@@ -9662,7 +9576,7 @@ const gameOrder = () => {
         new __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__["a" /* default */](__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */](".page__content"), document.querySelector(".result"), "good"),
     ];
     let resetButton = document.querySelector(".page__start-button");
-    let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](algorithms, new __WEBPACK_IMPORTED_MODULE_4__NumberVisualiserSVG__["a" /* default */]());
+    let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](algorithms, new __WEBPACK_IMPORTED_MODULE_4__SVG_NumberVisualiserSVG__["a" /* default */]());
     resetButton.addEventListener("click", () => {
         resetButton.classList.add("page__start-button_disabled");
         world
@@ -9684,12 +9598,8 @@ gameOrder();
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MyNumber__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__GoodAlgo__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__BadAlgo__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__consts__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__consts__ = __webpack_require__(33);
 //TODO: rename entry point
-
-
 
 
 
@@ -9713,10 +9623,10 @@ class World {
     }
 
     generatePoints() {
-        this.numbers = new Array(__WEBPACK_IMPORTED_MODULE_4__consts__["c" /* NUMBEROFNUMBERS */])
+        this.numbers = new Array(__WEBPACK_IMPORTED_MODULE_2__consts__["c" /* NUMBEROFNUMBERS */])
             .fill()
             .map((el, i) =>
-                new __WEBPACK_IMPORTED_MODULE_0__MyNumber__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_4__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_4__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_4__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_4__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(1, __WEBPACK_IMPORTED_MODULE_4__consts__["c" /* NUMBEROFNUMBERS */] + 1)));
+                new __WEBPACK_IMPORTED_MODULE_0__MyNumber__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(1, __WEBPACK_IMPORTED_MODULE_2__consts__["c" /* NUMBEROFNUMBERS */] + 1)));
                 // new MyNumberSVG(getRandom(this.algorithms[0].left, this.algorithms[0].right), getRandom(this.algorithms[0].top, this.algorithms[0].bottom), getRandom(1, NUMBEROFNUMBERS + 1)));
         this.numbers.map((el) => {
             this.algorithms.map((elem) => {
@@ -22948,7 +22858,50 @@ function nopropagation() {
 
 
 /***/ }),
-/* 472 */
+/* 472 */,
+/* 473 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class AlgoSVG {
+    constructor(algoDOMNode, resDOMNode, modifier) {
+        this.modifier = modifier;
+        this.context = algoDOMNode// ".page__content"
+            .append("svg")
+            .attr("class", "content__algo content__algo_" + this.modifier)
+            .attr("preserveAspectRatio", "xMinYMin");
+            // .attr("viewBox", `0 0 ${this.height} ${this.width}`);
+        const {height, width} = document.querySelector(".content__algo").getBoundingClientRect();
+        this.height = height;
+        this.width = width;
+
+        this.resultArea = document.createElement("div");
+        this.resultArea.classList.add("result__" + modifier);
+        resDOMNode.appendChild(this.resultArea);
+
+    }
+
+    prepareAreas() {
+
+        document.querySelector(".result__" + this.modifier).innerHTML = "";
+    }
+
+
+    async perform(numbers, visualiser) {
+
+    }
+
+
+    createResultingArea(domNode) {
+
+    }
+}
+
+
+/* harmony default export */ __webpack_exports__["a"] = (AlgoSVG);
+
+/***/ }),
+/* 474 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
