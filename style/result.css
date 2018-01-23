@@ -16,7 +16,7 @@
     border-radius: 4px;
     padding-left: 2px;
     padding-right: 2px;
-
+    display: inline-block;
 }
 
 .result__missing-numbers_bad {
