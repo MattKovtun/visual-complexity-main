@@ -53,7 +53,8 @@ class World {
                             .map(el => this.renderNumber(el, "result__missing-numbers_" + alg.modifier))
                             .map(el => elem.appendChild(el))
                     }
-                )))
+                )));
+        return this;
     }
 }
 

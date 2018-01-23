@@ -17,7 +17,7 @@ class AlgoSVG {
     }
 
     prepareAreas() {
-
+        document.querySelector(".content__algo_" + this.modifier).innerHTML = "";
         document.querySelector(".result__" + this.modifier).innerHTML = "";
     }
 
