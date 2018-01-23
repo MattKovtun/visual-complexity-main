@@ -1,5 +1,5 @@
 import {sleepFor} from "./utils";
-import {K, NUMBEROFNUMBERS} from './consts';
+import {K} from './consts';
 import AlgoSVG from './SVG/AlgoSVG';
 
 class GoodAlgo extends AlgoSVG {
@@ -9,8 +9,8 @@ class GoodAlgo extends AlgoSVG {
 
     async perform(numbers, visualiser) {
         let missingNumbers = [];
-        const countNumbers = new Array(NUMBEROFNUMBERS + 1).fill(0);
-        const indexNumbers = new Array(NUMBEROFNUMBERS + 1).fill().map(() => new Array(NUMBEROFNUMBERS + 1));
+        const countNumbers = new Array(numbers.length + 1).fill(0);
+        const indexNumbers = new Array(numbers.length + 1).fill().map(() => new Array(numbers.length + 1));
         for (let i = 0; i < numbers.length; ++i) {
             await sleepFor(K);
             countNumbers[numbers[i].number]++;

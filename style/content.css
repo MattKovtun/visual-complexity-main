@@ -1,7 +1,13 @@
 .content__algo {
-    width: 49%;
+    width: 48%;
     height: 55vh;
+    margin-top: 5px;
 }
+
+.content__algo:nth-child(2n + 1) {
+    margin-left:30px;
+}
+
 
 .content__algo_bad {
     outline: #e74c3c 1.5px solid;
@@ -9,6 +15,14 @@
 }
 
 .content__algo_good {
-    float: right;
+    display: inline-block;
     outline: #3498db 1.5px solid;
+}
+
+
+.content__points {
+    display: block;
+    padding: 0;
+    margin:0;
+
 }

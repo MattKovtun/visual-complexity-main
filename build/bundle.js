@@ -2630,7 +2630,7 @@ const sleepFor = (sleepDuration) => new Promise((res, rej) => setTimeout(res, sl
 
 "use strict";
 const NUMBEROFNUMBERS = 50;
-/* harmony export (immutable) */ __webpack_exports__["c"] = NUMBEROFNUMBERS;
+/* unused harmony export NUMBEROFNUMBERS */
 
 const K = 0.5;
 /* harmony export (immutable) */ __webpack_exports__["a"] = K;
@@ -2641,6 +2641,10 @@ const MARGINFROMSIDES = 3;
 const NUMBERFILLSTYLE = `#1abc9c`;
 /* unused harmony export NUMBERFILLSTYLE */
 
+/* harmony default export */ __webpack_exports__["c"] = ({
+    bad: "bad",
+    good: "good"
+});
 
 /***/ }),
 /* 51 */
@@ -9520,6 +9524,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__BadAlgo__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_d3__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SVG_NumberVisualiserSVG__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__consts__ = __webpack_require__(50);
+
 
 
 
@@ -9528,14 +9534,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const gameOrder = () => {
-    // TODO : generate points before pressing start
+    // TODO : generate points dynamically according to the input field
     const algorithms = [
-        new __WEBPACK_IMPORTED_MODULE_2__BadAlgo__["a" /* default */](__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */](".page__content"), document.querySelector(".result"), "bad"),
-        new __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__["a" /* default */](__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */](".page__content"), document.querySelector(".result"), "good"),
+        new __WEBPACK_IMPORTED_MODULE_2__BadAlgo__["a" /* default */](__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */](".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* default */].bad),
+        new __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__["a" /* default */](__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */](".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* default */].good)
     ];
     let resetButton = document.querySelector(".page__start-button");
-    let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](algorithms, new __WEBPACK_IMPORTED_MODULE_4__SVG_NumberVisualiserSVG__["a" /* default */]()).generatePoints();
+    let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](algorithms, new __WEBPACK_IMPORTED_MODULE_4__SVG_NumberVisualiserSVG__["a" /* default */]()).generatePoints(parseInt(document.querySelector(".points__select").value, 10));
     resetButton.addEventListener("click", () => {
+        console.log(document.querySelector(".points__select").value);
         resetButton.classList.add("page__start-button_disabled");
         world
             .action()
@@ -9544,7 +9551,7 @@ const gameOrder = () => {
                 return el;
             })
             .then((el) => el.clearArea())
-            .then((el) => el.generatePoints());
+            .then((el) => el.generatePoints(parseInt(document.querySelector(".points__select").value, 10)));
     }, false);
 
 };
@@ -9568,8 +9575,6 @@ gameOrder();
 
 
 class World {
-    // TODO: rename Complexity
-    // TODO: pass DOM node, instead of selector
     constructor(algorithms, visualiser) {
         this.algorithms = algorithms;
         this.visualiser = visualiser;
@@ -9583,11 +9588,11 @@ class World {
 
     }
 
-    generatePoints() {
-        this.numbers = new Array(__WEBPACK_IMPORTED_MODULE_2__consts__["c" /* NUMBEROFNUMBERS */])
+    generatePoints(numberOfNumbers) {
+        this.numbers = new Array(numberOfNumbers)
             .fill()
             .map((el, i) =>
-                new __WEBPACK_IMPORTED_MODULE_0__MyNumber__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(1, __WEBPACK_IMPORTED_MODULE_2__consts__["c" /* NUMBEROFNUMBERS */] + 1)));
+                new __WEBPACK_IMPORTED_MODULE_0__MyNumber__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(1, numberOfNumbers + 1)));
                 // new MyNumberSVG(getRandom(this.algorithms[0].left, this.algorithms[0].right), getRandom(this.algorithms[0].top, this.algorithms[0].bottom), getRandom(1, NUMBEROFNUMBERS + 1)));
         this.numbers.map((el) => {
             this.algorithms.map((elem) => {
@@ -9663,8 +9668,8 @@ class GoodAlgo extends __WEBPACK_IMPORTED_MODULE_2__SVG_AlgoSVG__["a" /* default
 
     async perform(numbers, visualiser) {
         let missingNumbers = [];
-        const countNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */] + 1).fill(0);
-        const indexNumbers = new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */] + 1).fill().map(() => new Array(__WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */] + 1));
+        const countNumbers = new Array(numbers.length + 1).fill(0);
+        const indexNumbers = new Array(numbers.length + 1).fill().map(() => new Array(numbers.length + 1));
         for (let i = 0; i < numbers.length; ++i) {
             await Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* sleepFor */])(__WEBPACK_IMPORTED_MODULE_1__consts__["a" /* K */]);
             countNumbers[numbers[i].number]++;
@@ -9708,9 +9713,9 @@ class BadAlgo extends __WEBPACK_IMPORTED_MODULE_2__SVG_AlgoSVG__["a" /* default 
 
     async perform(numbers, visualiser) {
         let missingNumbers = [];
-        for (let i = 1; i <= __WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */]; ++i) {
+        for (let i = 1; i <= numbers.length; ++i) {
             let exist = false;
-            for (let j = 0; j < __WEBPACK_IMPORTED_MODULE_1__consts__["c" /* NUMBEROFNUMBERS */]; ++j) {
+            for (let j = 0; j < numbers.length; ++j) {
                 await Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* sleepFor */])(__WEBPACK_IMPORTED_MODULE_1__consts__["a" /* K */]);
                 if (i === numbers[j].number) {
                     visualiser.undraw(this.context, numbers[j]);

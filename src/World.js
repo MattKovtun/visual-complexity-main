@@ -1,13 +1,11 @@
 //TODO: rename entry point
 import MyNumber from "./MyNumber";
 import {getRandom} from "./utils";
-import {K, MARGINFROMSIDES, NUMBEROFNUMBERS} from './consts';
+import {K, MARGINFROMSIDES} from './consts';
 
 
 
 class World {
-    // TODO: rename Complexity
-    // TODO: pass DOM node, instead of selector
     constructor(algorithms, visualiser) {
         this.algorithms = algorithms;
         this.visualiser = visualiser;
@@ -21,11 +19,11 @@ class World {
 
     }
 
-    generatePoints() {
-        this.numbers = new Array(NUMBEROFNUMBERS)
+    generatePoints(numberOfNumbers) {
+        this.numbers = new Array(numberOfNumbers)
             .fill()
             .map((el, i) =>
-                new MyNumber(getRandom(MARGINFROMSIDES, this.algorithms[0].width - MARGINFROMSIDES), getRandom(MARGINFROMSIDES, this.algorithms[0].height - MARGINFROMSIDES), getRandom(1, NUMBEROFNUMBERS + 1)));
+                new MyNumber(getRandom(MARGINFROMSIDES, this.algorithms[0].width - MARGINFROMSIDES), getRandom(MARGINFROMSIDES, this.algorithms[0].height - MARGINFROMSIDES), getRandom(1, numberOfNumbers + 1)));
                 // new MyNumberSVG(getRandom(this.algorithms[0].left, this.algorithms[0].right), getRandom(this.algorithms[0].top, this.algorithms[0].bottom), getRandom(1, NUMBEROFNUMBERS + 1)));
         this.numbers.map((el) => {
             this.algorithms.map((elem) => {

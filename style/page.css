@@ -11,13 +11,14 @@
     padding-left: 22px;
     padding-right: 22px;
     padding-top: 20px;
+    text-align: center;
 }
 
 .page__start-button {
     border-radius: 3px;
     border: 1px solid black;
     background-color: #2980b9;
-    margin-left: 32px;
+    margin-left: 40px;
     margin-top: 5px;
 }
 

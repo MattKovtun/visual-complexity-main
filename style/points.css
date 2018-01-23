@@ -1,0 +1,18 @@
+.points {
+    text-align: right;
+    padding-right: calc(3% - 30px);
+    margin-bottom: 10px;
+}
+
+.points__tittle {
+    color: rgba(52, 73, 94, 1.0);
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.points__select {
+    padding: 0;
+    margin: 0 0 0 15px;
+    display: inline-block;
+}
