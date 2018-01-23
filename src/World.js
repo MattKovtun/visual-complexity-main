@@ -3,7 +3,7 @@ import MyNumber from "./MyNumber";
 import {getRandom} from "./utils";
 import {K, MARGINFROMSIDES} from './consts';
 
-
+import "../style/result.less"
 
 class World {
     constructor(algorithms, visualiser) {

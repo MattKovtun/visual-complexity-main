@@ -1,3 +1,5 @@
+import "../../style/number.less"
+
 class NumberVisualiserSVG {
     draw(ctx, number) {
         ctx

@@ -1,16 +1,20 @@
 import World from './World';
 import GoodAlgo from './GoodAlgo';
 import BadAlgo from "./BadAlgo";
-import * as d3 from "d3";
+import {select} from "d3";
 import NumberVisualiserSVG from './SVG/NumberVisualiserSVG';
 import Modifiers from './consts';
 
+import "../style/common.less";
+import "../style/page.less"
+import "../style/points.less"
+import "../style/result.less"
 
 const gameOrder = () => {
     // TODO : generate points dynamically according to the input field
     const algorithms = [
-        new BadAlgo(d3.select(".page__content"), document.querySelector(".result"), Modifiers.bad),
-        new GoodAlgo(d3.select(".page__content"), document.querySelector(".result"), Modifiers.good)
+        new BadAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.bad),
+        new GoodAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.good)
     ];
     let resetButton = document.querySelector(".page__start-button");
     let world = new World(algorithms, new NumberVisualiserSVG()).generatePoints(parseInt(document.querySelector(".points__select").value, 10));

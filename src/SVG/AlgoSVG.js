@@ -1,3 +1,6 @@
+import "../../style/content.less"
+import "../../style/result.less"
+
 class AlgoSVG {
     constructor(algoDOMNode, resDOMNode, modifier) {
         this.modifier = modifier;
