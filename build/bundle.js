@@ -9585,7 +9585,6 @@ class World {
             el.clearAlgoArea();
         });
         return this;
-
     }
 
     generatePoints(numberOfNumbers) {
@@ -9593,10 +9592,9 @@ class World {
             .fill()
             .map((el, i) =>
                 new __WEBPACK_IMPORTED_MODULE_0__MyNumber__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(1, numberOfNumbers + 1)));
-                // new MyNumberSVG(getRandom(this.algorithms[0].left, this.algorithms[0].right), getRandom(this.algorithms[0].top, this.algorithms[0].bottom), getRandom(1, NUMBEROFNUMBERS + 1)));
+
         this.numbers.map((el) => {
             this.algorithms.map((elem) => {
-                // console.log(elem.context);
                 this.visualiser.draw(elem.context, el);
             })
         });
