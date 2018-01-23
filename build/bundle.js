@@ -1706,7 +1706,7 @@ const NUMBEROFNUMBERS = 50;
 const K = 0.5;
 /* harmony export (immutable) */ __webpack_exports__["a"] = K;
 
-const MARGINFROMSIDES = 1;
+const MARGINFROMSIDES = 3;
 /* harmony export (immutable) */ __webpack_exports__["b"] = MARGINFROMSIDES;
 
 const NUMBERFILLSTYLE = `#1abc9c`;
@@ -5138,16 +5138,16 @@ class Algo {
 
 "use strict";
 class AlgoSVG {
-    // TODO : fix points spawned to in center
     constructor(algoDOMNode, resDOMNode, modifier) {
         this.modifier = modifier;
-        this.height = 500;
-        this.width = 500;
         this.context = algoDOMNode// ".page__content"
             .append("svg")
             .attr("class", "content__algo content__algo_" + this.modifier)
-            .attr("preserveAspectRatio", "xMinYMin")
-            .attr("viewBox", `0 0 ${this.height} ${this.width}`);
+            .attr("preserveAspectRatio", "xMinYMin");
+            // .attr("viewBox", `0 0 ${this.height} ${this.width}`);
+        const {height, width} = document.querySelector(".content__algo").getBoundingClientRect();
+        this.height = height;
+        this.width = width;
 
         this.resultArea = document.createElement("div");
         this.resultArea.classList.add("result__" + modifier);
@@ -22958,15 +22958,15 @@ class NumberVisualiserSVG {
             .append("circle")
             .attr("cx", number.x)
             .attr("cy", number.y)
-            .attr("r", 11)
+            .attr("r", 8)
             .attr("class", "number_circle");
 
         ctx
             .append("text")
             .attr("x", number.x)
             .attr("y", number.y)
-            .attr("dx", -9)
-            .attr("dy", 7)
+            .attr("dx", -6)
+            .attr("dy", 5)
             .attr("class", "number")
             .text(number.number);
     }

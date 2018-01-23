@@ -4,15 +4,15 @@ class NumberVisualiserSVG {
             .append("circle")
             .attr("cx", number.x)
             .attr("cy", number.y)
-            .attr("r", 11)
+            .attr("r", 8)
             .attr("class", "number_circle");
 
         ctx
             .append("text")
             .attr("x", number.x)
             .attr("y", number.y)
-            .attr("dx", -9)
-            .attr("dy", 7)
+            .attr("dx", -6)
+            .attr("dy", 5)
             .attr("class", "number")
             .text(number.number);
     }
