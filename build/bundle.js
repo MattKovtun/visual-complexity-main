@@ -10025,8 +10025,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_settings_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__style_settings_less__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__style_result_less__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__style_result_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__style_result_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__style_introduction_less__ = __webpack_require__(486);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__style_introduction_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__style_introduction_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__style_article_less__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__style_article_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__style_article_less__);
 
 
 
@@ -10041,6 +10041,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const gameOrder = () => {
+    // TODO: change display, for gray numbers which are missing and colored which are present
     const algorithms = [
         new __WEBPACK_IMPORTED_MODULE_2__BadAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* default */].bad),
         new __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* default */].good)
@@ -23790,19 +23791,21 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".settings {\n  text-align: right;\n  margin-bottom: 13px;\n  margin-top: 30px;\n}\n.settings__tittle {\n  color: #34495e;\n  padding: 0;\n  margin: 0;\n  display: inline-block;\n}\n.settings__points {\n  padding: 0;\n  margin: 0 0 0 15px;\n  display: inline-block;\n  width: 10%;\n}\n", ""]);
+exports.push([module.i, ".settings {\n  text-align: right;\n  margin-bottom: 13px;\n  margin-top: 30px;\n}\n.settings__tittle {\n  color: #34495e;\n  padding: 0;\n  margin: 0;\n  display: inline-block;\n}\n.settings__points {\n  padding: 0;\n  margin: 0 0 0 15px;\n  width: 10%;\n}\n.settings__points::-moz-range-thumb {\n  box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;\n  border: 1px solid #000000;\n  height: 13px;\n  width: 7px;\n  border-radius: 3px;\n  background: #0287d0;\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 486 */
+/* 486 */,
+/* 487 */,
+/* 488 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(487);
+var content = __webpack_require__(489);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -23816,8 +23819,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/less-loader/dist/cjs.js!./introduction.less", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/less-loader/dist/cjs.js!./introduction.less");
+		module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/less-loader/dist/cjs.js!./article.less", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/less-loader/dist/cjs.js!./article.less");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -23827,7 +23830,7 @@ if(false) {
 }
 
 /***/ }),
-/* 487 */
+/* 489 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);
@@ -23835,7 +23838,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".introduction {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n", ""]);
+exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__approaches {\n  width: 47%;\n  padding-left: 3px;\n  display: inline-block;\n}\n.article__approaches_left {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_right {\n  border: solid 1.5px #3498db;\n}\n", ""]);
 
 // exports
 

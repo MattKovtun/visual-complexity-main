@@ -1,19 +1,32 @@
 .settings {
-    text-align: right;
-    margin-bottom: 13px;
-    margin-top:30px;
+  text-align: right;
+  margin-bottom: 13px;
+  margin-top: 30px;
 
-    &__tittle {
-        color: rgba(52, 73, 94, 1.0);
-        padding: 0;
-        margin: 0;
-        display: inline-block;
-    }
+  &__tittle {
+    color: rgba(52, 73, 94, 1.0);
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+  }
 
-    &__points {
-        padding: 0;
-        margin: 0 0 0 15px;
-        display: inline-block;
-        width: 10%;
+
+
+  &__points {
+    padding: 0;
+    margin: 0 0 0 15px;
+    width: 10%;
+
+
+    &::-moz-range-thumb {
+      box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
+      border: 1px solid #000000;
+      height: 13px;
+      width: 7px;
+      border-radius: 3px;
+      background: #0287d0;
+      cursor: pointer;
     }
+  }
+
 }

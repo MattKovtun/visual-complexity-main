@@ -9,9 +9,10 @@ import "../style/common.less";
 import "../style/page.less"
 import "../style/settings.less"
 import "../style/result.less"
-import "../style/introduction.less"
+import "../style/article.less"
 
 const gameOrder = () => {
+    // TODO: change display, for gray numbers which are missing and colored which are present
     const algorithms = [
         new BadAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.bad),
         new GoodAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.good)
