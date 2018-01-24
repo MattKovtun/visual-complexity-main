@@ -23656,7 +23656,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".number {\n  fill: white;\n  font-size: 11px;\n}\n.number_circle {\n  fill: #0067b0;\n}\n", ""]);
+exports.push([module.i, ".number {\n  fill: white;\n  font-size: 11px;\n}\n.number_circle {\n  fill: #0067b0;\n  stroke: #c5d3e2;\n}\n", ""]);
 
 // exports
 
@@ -23746,7 +23746,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".page {\n  padding: 20px 30px 80px;\n}\n.page__tittle {\n  text-align: center;\n  color: #34495e;\n  margin: 0 auto auto;\n}\n.page__start-button {\n  border-radius: 3px;\n  border: 1px solid black;\n  background-color: #2980b9;\n  margin-top: 5px;\n}\n.page__start-button_disabled {\n  display: none;\n}\n", ""]);
+exports.push([module.i, ".page {\n  padding: 20px 30px 80px;\n}\n.page__tittle {\n  text-align: center;\n  color: #000;\n  margin: 0 auto auto;\n}\n.page__start-button {\n  border-radius: 3px;\n  border: 1px solid black;\n  background-color: #2980b9;\n  margin-top: 5px;\n}\n.page__start-button_disabled {\n  display: none;\n}\n", ""]);
 
 // exports
 
@@ -23791,7 +23791,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".settings {\n  text-align: right;\n  margin-bottom: 13px;\n  margin-top: 30px;\n}\n.settings__tittle {\n  color: #34495e;\n  padding: 0;\n  margin: 0;\n  display: inline-block;\n}\n.settings__points {\n  padding: 0;\n  margin: 0 0 0 15px;\n  width: 10%;\n}\n.settings__points::-moz-range-thumb {\n  box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;\n  border: 1px solid #000000;\n  height: 13px;\n  width: 7px;\n  border-radius: 3px;\n  background: #0287d0;\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, ".settings {\n  text-align: right;\n  margin-bottom: 13px;\n  margin-top: 30px;\n}\n.settings__tittle {\n  color: #000;\n  padding: 0;\n  margin: 0;\n  display: inline-block;\n}\n.settings__points {\n  padding: 0;\n  margin: 0 0 0 15px;\n  width: 10%;\n}\n.settings__points::-moz-range-thumb {\n  box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;\n  border: 1px solid #000000;\n  height: 13px;\n  width: 7px;\n  border-radius: 3px;\n  background: #0287d0;\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -23838,7 +23838,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__approaches {\n  width: 47%;\n  padding-left: 3px;\n  display: inline-block;\n}\n.article__approaches_left {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_right {\n  border: solid 1.5px #3498db;\n  margin-left: calc(3%);\n}\n", ""]);
+exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  width: 47%;\n  padding-left: 3px;\n  display: inline-block;\n}\n.article__approaches_left {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_right {\n  border: solid 1.5px #3498db;\n  margin-left: calc(3%);\n}\n", ""]);
 
 // exports
 
