@@ -23838,7 +23838,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  width: 47%;\n  padding-left: 3px;\n  display: inline-block;\n}\n.article__approaches_left {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_right {\n  border: solid 1.5px #3498db;\n  margin-left: calc(3%);\n}\n", ""]);
+exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  width: 47%;\n  padding-left: 3px;\n  display: inline-block;\n}\n.article__approaches_left {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_right {\n  border: solid 1.5px #3498db;\n  margin-left: 2%;\n}\n", ""]);
 
 // exports
 
