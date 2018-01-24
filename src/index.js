@@ -7,7 +7,7 @@ import Modifiers from './consts';
 
 import "../style/common.less";
 import "../style/page.less"
-import "../style/points.less"
+import "../style/settings.less"
 import "../style/result.less"
 
 const gameOrder = () => {
@@ -17,9 +17,9 @@ const gameOrder = () => {
         new GoodAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.good)
     ];
     let resetButton = document.querySelector(".page__start-button");
-    let world = new World(algorithms, new NumberVisualiserSVG()).generatePoints(parseInt(document.querySelector(".points__select").value, 10));
+    let world = new World(algorithms, new NumberVisualiserSVG()).generatePoints(parseInt(document.querySelector(".settings__points").value, 10));
     resetButton.addEventListener("click", () => {
-        console.log(document.querySelector(".points__select").value);
+        console.log(document.querySelector(".settings__points").value);
         resetButton.classList.add("page__start-button_disabled");
         world
             .action()
@@ -28,7 +28,7 @@ const gameOrder = () => {
                 return el;
             })
             .then((el) => el.clearArea())
-            .then((el) => el.generatePoints(parseInt(document.querySelector(".points__select").value, 10)));
+            .then((el) => el.generatePoints(parseInt(document.querySelector(".settings__points").value, 10)));
     }, false);
 
 };
