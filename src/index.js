@@ -11,15 +11,17 @@ import "../style/settings.less"
 import "../style/result.less"
 
 const gameOrder = () => {
-    // TODO : generate points dynamically according to the input field
     const algorithms = [
         new BadAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.bad),
         new GoodAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.good)
     ];
     let resetButton = document.querySelector(".page__start-button");
-    let world = new World(algorithms, new NumberVisualiserSVG()).generatePoints(parseInt(document.querySelector(".settings__points").value, 10));
+    let numberOfPoints = document.querySelector(".settings__points");
+
+    let world = new World(algorithms, new NumberVisualiserSVG()).generatePoints(parseInt(numberOfPoints.value, 10));
+
     resetButton.addEventListener("click", () => {
-        console.log(document.querySelector(".settings__points").value);
+        console.log(numberOfPoints.value);
         resetButton.classList.add("page__start-button_disabled");
         world
             .action()
@@ -28,8 +30,15 @@ const gameOrder = () => {
                 return el;
             })
             .then((el) => el.clearArea())
-            .then((el) => el.generatePoints(parseInt(document.querySelector(".settings__points").value, 10)));
+            .then((el) => el.generatePoints(parseInt(numberOfPoints.value, 10)));
     }, false);
+
+    numberOfPoints.addEventListener("input", () => {
+        world
+            .clearArea()
+            .generatePoints(parseInt(numberOfPoints.value, 10));
+    }, false);
+
 
 };
 
