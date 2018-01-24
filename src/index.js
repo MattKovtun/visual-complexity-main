@@ -9,6 +9,7 @@ import "../style/common.less";
 import "../style/page.less"
 import "../style/settings.less"
 import "../style/result.less"
+import "../style/introduction.less"
 
 const gameOrder = () => {
     const algorithms = [
@@ -22,6 +23,7 @@ const gameOrder = () => {
 
     resetButton.addEventListener("click", () => {
         console.log(numberOfPoints.value);
+        numberOfPoints.disabled = true;
         resetButton.classList.add("page__start-button_disabled");
         world
             .action()
@@ -30,7 +32,8 @@ const gameOrder = () => {
                 return el;
             })
             .then((el) => el.clearArea())
-            .then((el) => el.generatePoints(parseInt(numberOfPoints.value, 10)));
+            .then((el) => el.generatePoints(parseInt(numberOfPoints.value, 10)))
+            .then(() => numberOfPoints.disabled = false);
     }, false);
 
     numberOfPoints.addEventListener("input", () => {
