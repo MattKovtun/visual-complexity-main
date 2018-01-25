@@ -3,7 +3,8 @@ import GoodAlgo from './GoodAlgo';
 import BadAlgo from "./BadAlgo";
 import {select} from "d3";
 import NumberVisualiserSVG from './SVG/NumberVisualiserSVG';
-import Modifiers from './consts';
+import Modifiers, {K} from './consts';
+
 
 import "../style/common.less";
 import "../style/page.less"
@@ -19,6 +20,15 @@ const gameOrder = () => {
     ];
     let resetButton = document.querySelector(".page__start-button");
     let numberOfPoints = document.querySelector(".settings__points");
+    let numberOfPointsText = document.querySelectorAll(".article__points");
+    let resultBadText = document.querySelector(".article__result_bad");
+    let resultGoodText = document.querySelector(".article__result_good");
+    let KconstantsText = document.querySelectorAll(".article__k");
+
+
+    KconstantsText = Array.prototype.slice.call(KconstantsText);
+    numberOfPointsText = Array.prototype.slice.call(numberOfPointsText);
+    KconstantsText.map((el) => el.innerHTML = K / 1000);
 
     let world = new World(algorithms, new NumberVisualiserSVG()).generatePoints(parseInt(numberOfPoints.value, 10));
 
@@ -38,9 +48,14 @@ const gameOrder = () => {
     }, false);
 
     numberOfPoints.addEventListener("input", () => {
+
         world
             .clearArea()
             .generatePoints(parseInt(numberOfPoints.value, 10));
+        numberOfPointsText.map((el) => el.innerHTML = numberOfPoints.value);
+        resultBadText.innerHTML = K * parseInt(numberOfPoints.value, 10) * parseInt(numberOfPoints.value, 10) / 1000;
+        resultGoodText.innerHTML = K * 2 * parseInt(numberOfPoints.value, 10) / 1000;
+
     }, false);
 
 

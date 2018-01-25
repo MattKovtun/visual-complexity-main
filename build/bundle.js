@@ -2157,7 +2157,7 @@ Diagram.prototype = {
 const NUMBEROFNUMBERS = 50;
 /* unused harmony export NUMBEROFNUMBERS */
 
-const K = 0.5;
+const K = 1;
 /* harmony export (immutable) */ __webpack_exports__["a"] = K;
 
 const MARGINFROMSIDES = 3;
@@ -10040,6 +10040,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
 const gameOrder = () => {
     // TODO: change display, for gray numbers which are missing and colored which are present
     const algorithms = [
@@ -10048,6 +10049,15 @@ const gameOrder = () => {
     ];
     let resetButton = document.querySelector(".page__start-button");
     let numberOfPoints = document.querySelector(".settings__points");
+    let numberOfPointsText = document.querySelectorAll(".article__points");
+    let resultBadText = document.querySelector(".article__result_bad");
+    let resultGoodText = document.querySelector(".article__result_good");
+    let KconstantsText = document.querySelectorAll(".article__k");
+
+
+    KconstantsText = Array.prototype.slice.call(KconstantsText);
+    numberOfPointsText = Array.prototype.slice.call(numberOfPointsText);
+    KconstantsText.map((el) => el.innerHTML = __WEBPACK_IMPORTED_MODULE_5__consts__["a" /* K */] / 1000);
 
     let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](algorithms, new __WEBPACK_IMPORTED_MODULE_4__SVG_NumberVisualiserSVG__["a" /* default */]()).generatePoints(parseInt(numberOfPoints.value, 10));
 
@@ -10067,9 +10077,14 @@ const gameOrder = () => {
     }, false);
 
     numberOfPoints.addEventListener("input", () => {
+
         world
             .clearArea()
             .generatePoints(parseInt(numberOfPoints.value, 10));
+        numberOfPointsText.map((el) => el.innerHTML = numberOfPoints.value);
+        resultBadText.innerHTML = __WEBPACK_IMPORTED_MODULE_5__consts__["a" /* K */] * parseInt(numberOfPoints.value, 10) * parseInt(numberOfPoints.value, 10) / 1000;
+        resultGoodText.innerHTML = __WEBPACK_IMPORTED_MODULE_5__consts__["a" /* K */] * 2 * parseInt(numberOfPoints.value, 10) / 1000;
+
     }, false);
 
 
