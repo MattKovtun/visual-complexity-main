@@ -10025,7 +10025,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_settings_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__style_settings_less__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__style_result_less__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__style_result_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__style_result_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__style_article_less__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__style_article_less__ = __webpack_require__(486);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__style_article_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__style_article_less__);
 
 
@@ -23797,15 +23797,13 @@ exports.push([module.i, ".settings {\n  text-align: right;\n  margin-bottom: 13p
 
 
 /***/ }),
-/* 486 */,
-/* 487 */,
-/* 488 */
+/* 486 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(489);
+var content = __webpack_require__(487);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -23830,7 +23828,7 @@ if(false) {
 }
 
 /***/ }),
-/* 489 */
+/* 487 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(false);
@@ -23838,7 +23836,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  width: 47%;\n  padding-left: 3px;\n  display: inline-block;\n}\n.article__approaches_left {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_right {\n  border: solid 1.5px #3498db;\n  margin-left: 2%;\n}\n", ""]);
+exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  padding-left: 3px;\n  padding-right: 3px;\n  padding-bottom: 2px;\n  vertical-align: top;\n  display: block;\n  width: 70%;\n}\n.article__approaches_bad {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_good {\n  border: solid 1.5px #3498db;\n}\n", ""]);
 
 // exports
 

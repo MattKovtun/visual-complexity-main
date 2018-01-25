@@ -37,19 +37,35 @@
         Find numbers which are missing and count occurrence of each present number.
     </p>
     <h3 class="article__tittle">Approaches</h3>
-    <p class="article__approaches article__approaches_left">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Aliquam
-        consectetur dolor eaque et fugit incidunt minus neque quidem sunt suscipit.</p>
-    <p class="article__approaches article__approaches_right">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Aliquam
-        consectetur dolor eaque et fugit incidunt minus neque quidem sunt suscipit.</p>
+    <p class="article__approaches article__approaches_bad">
+        RES = [ ]<br>
+        FOR i = 1 TO N<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;COUNT = 0<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;FOR j = 0 TO N - 2<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF i == numbers[ j ]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COUNT++<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;RES.add( i, COUNT )<br>
+        <br>
+        Rough complexity of this approach is O(n&sup2;&middot;K), where K is time to perform one action.
+    </p>
+    <p class="article__approaches article__approaches_good">
+        RES = [ ]<br>
+        COUNTER = [ N elements ]<br>
+        FOR i = 0 TO N - 2<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;COUNTER[ numbers[ i ] - 1 ]++<br>
+        FOR i = 0 TO N<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;RES.add( COUNTER[ i ], i + 1)<br>
+        <br>
+        Rough complexity of this approach is O(2&middot;n&middot;K), where K is time to perform one action.
+        However, this approach needs additional memory equal to O(n).
+    </p>
 
 </article>
 <div class="page__content">
     <div class="settings">
         <h4 class="settings__tittle">Points</h4>
-        <input class="settings__points" type="range" min="0" max="100"
-               step="1" value="50" list="points">
+        <input class="settings__points" type="range" min="0" max="400"
+               step="1" value="100" list="points">
         <!--fix datalist isn't displayed -->
         <datalist id="points">
             <option value="0" label="0">
