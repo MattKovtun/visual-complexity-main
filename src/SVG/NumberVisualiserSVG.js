@@ -13,7 +13,7 @@ class NumberVisualiserSVG {
             .append("text")
             .attr("x", number.x)
             .attr("y", number.y)
-            .attr("dx", -6)
+            .attr("dx", -6.5)
             .attr("dy", 4)
             .attr("class", "number")
             .text(number.number);

@@ -23604,7 +23604,7 @@ class NumberVisualiserSVG {
             .append("text")
             .attr("x", number.x)
             .attr("y", number.y)
-            .attr("dx", -6)
+            .attr("dx", -6.5)
             .attr("dy", 4)
             .attr("class", "number")
             .text(number.number);
@@ -23701,7 +23701,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  font: 16px \"Roboto\", Arial, sans-serif;\n  background-color: #fcfcfc;\n}\n", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  font-family: 'Lato', sans-serif;\n  background-color: #fcfcfc;\n}\n", ""]);
 
 // exports
 
@@ -23746,7 +23746,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".page {\n  padding: 20px 30px 80px;\n}\n.page__tittle {\n  text-align: center;\n  color: #000;\n  margin: 0 auto auto;\n}\n.page__start-button {\n  border-radius: 3px;\n  border: 1px solid black;\n  background-color: #2980b9;\n  margin-top: 5px;\n}\n.page__start-button_disabled {\n  display: none;\n}\n", ""]);
+exports.push([module.i, ".page {\n  padding: 20px 30px 80px;\n}\n.page__tittle {\n  font-family: 'Arvo', serif;\n  text-align: center;\n  color: #000;\n  margin: 0 auto auto;\n}\n.page__start-button {\n  border-radius: 3px;\n  border: 1px solid black;\n  background-color: #2980b9;\n  margin-top: 5px;\n}\n.page__start-button_disabled {\n  display: none;\n}\n", ""]);
 
 // exports
 
@@ -23836,7 +23836,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  padding-left: 3px;\n  padding-right: 3px;\n  padding-bottom: 2px;\n  vertical-align: top;\n  display: block;\n  width: 70%;\n}\n.article__approaches_bad {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_good {\n  border: solid 1.5px #3498db;\n}\n", ""]);
+exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n  font-family: 'Arvo', serif;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  padding-left: 3px;\n  padding-right: 3px;\n  padding-bottom: 2px;\n  vertical-align: top;\n  display: block;\n  width: 80%;\n  word-break: break-all;\n}\n.article__approaches_bad {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_good {\n  border: solid 1.5px #3498db;\n}\n", ""]);
 
 // exports
 
