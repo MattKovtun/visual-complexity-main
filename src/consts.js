@@ -6,3 +6,6 @@ export default {
     bad: "bad",
     good: "good"
 }
+
+export const OBJECTMEMORY = 65.72;
+export const NUMBERMEMORY = 9.72;

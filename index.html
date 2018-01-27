@@ -52,10 +52,10 @@
     <p class="article__approaches article__approaches_good">
         RES = [ ]<br>
         COUNTER = [ N elements ]<br>
-        FOR i = 0 TO N - 2<br>
+        FOR i = 0 TO N - 1<br>
         &nbsp;&nbsp;&nbsp;&nbsp;COUNTER[ numbers[ i ] - 1 ]++<br>
         FOR i = 0 TO N<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;RES.add( COUNTER[ i ], i + 1 )<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;RES.add( i + 1, COUNTER[ i ] )<br>
         <br>
         Rough complexity of this approach is O(2&middot;n&middot;K&middot;C), where K is time to perform one action.
         However, this approach needs additional memory equal to O(n).
@@ -64,19 +64,22 @@
         In this illustration we've taken K equal to <span class="article__k"></span>sec.<br>
         At the end we multiply everything by C, which represents load of PC, speed of running code, speed of erasing
         SVG, speed of incrementing variable...<br>
+        One empty object in array takes 65.72 bytes.<br>
         Number of points, n = <span class="article__points">100</span>.
     </p>
     <p class="article__approaches article__approaches_bad">
-        O(n&sup2;&middot;K&middot;C) = <span class="article__points">100</span>&sup2; &middot; <span class="article__k"></span>
+        O(n&sup2;&middot;K&middot;C) = <span class="article__points">100</span>&sup2; &middot; <span
+            class="article__k"></span>
         &middot; C
         &asymp; <span class="article__result_bad">10</span> &middot; C <br>
+        Additional memory ~ 0 mb<br>
     </p>
     <p class="article__approaches article__approaches_good">
         O(2&middot;n&middot;K&middot;C) = 2 &middot; <span class="article__points">100</span> &middot; <span
             class="article__k"></span> &middot; C
-        &asymp; <span class="article__result_good">0.2</span> &middot; C
+        &asymp; <span class="article__result_good">0.2</span> &middot; C<br>
+        Additional memory ~ <span class="article__memory"></span> mb<br>
     </p>
-
 </article>
 <div class="page__content">
     <div class="settings">
@@ -102,6 +105,13 @@
 <button class="page__start-button">START</button>
 <section class="result">
 </section>
+<article class="article article_conclusion">
+    <h3 class="article__tittle">Conclusion</h3>
+    <p class="article__text">
+        The purpose of this page was not to teach anyone with new algorithms.
+        The only purpose was to encourage reader to think first what would one rather sacrifice, speed or memory.
+    </p>
+</article>
 <script src="build/bundle.js"></script>
 </body>
 </html>

@@ -2166,10 +2166,17 @@ const MARGINFROMSIDES = 3;
 const NUMBERFILLSTYLE = `#1abc9c`;
 /* unused harmony export NUMBERFILLSTYLE */
 
-/* harmony default export */ __webpack_exports__["c"] = ({
+/* harmony default export */ __webpack_exports__["d"] = ({
     bad: "bad",
     good: "good"
 });
+
+const OBJECTMEMORY = 65.72;
+/* harmony export (immutable) */ __webpack_exports__["c"] = OBJECTMEMORY;
+
+const NUMBERMEMORY = 9.72;
+/* unused harmony export NUMBERMEMORY */
+
 
 /***/ }),
 /* 36 */
@@ -10044,8 +10051,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 const gameOrder = () => {
     // TODO: change display, for gray numbers which are missing and colored which are present
     const algorithms = [
-        new __WEBPACK_IMPORTED_MODULE_2__BadAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* default */].bad),
-        new __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* default */].good)
+        new __WEBPACK_IMPORTED_MODULE_2__BadAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["d" /* default */].bad),
+        new __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["d" /* default */].good)
     ];
     let resetButton = document.querySelector(".page__start-button");
     let numberOfPoints = document.querySelector(".settings__points");
@@ -10053,16 +10060,17 @@ const gameOrder = () => {
     let resultBadText = document.querySelector(".article__result_bad");
     let resultGoodText = document.querySelector(".article__result_good");
     let KconstantsText = document.querySelectorAll(".article__k");
+    let memory = document.querySelector(".article__memory");
 
 
     KconstantsText = Array.prototype.slice.call(KconstantsText);
     numberOfPointsText = Array.prototype.slice.call(numberOfPointsText);
     KconstantsText.map((el) => el.innerHTML = __WEBPACK_IMPORTED_MODULE_5__consts__["a" /* K */] / 1000);
+    memory.innerHTML = parseInt(numberOfPoints.value, 10) * __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* OBJECTMEMORY */] / 1000000;
 
     let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](algorithms, new __WEBPACK_IMPORTED_MODULE_4__SVG_NumberVisualiserSVG__["a" /* default */]()).generatePoints(parseInt(numberOfPoints.value, 10));
 
     resetButton.addEventListener("click", () => {
-        console.log(numberOfPoints.value);
         numberOfPoints.disabled = true;
         resetButton.classList.add("page__start-button_disabled");
         world
@@ -10084,14 +10092,16 @@ const gameOrder = () => {
         numberOfPointsText.map((el) => el.innerHTML = numberOfPoints.value);
         resultBadText.innerHTML = __WEBPACK_IMPORTED_MODULE_5__consts__["a" /* K */] * parseInt(numberOfPoints.value, 10) * parseInt(numberOfPoints.value, 10) / 1000;
         resultGoodText.innerHTML = __WEBPACK_IMPORTED_MODULE_5__consts__["a" /* K */] * 2 * parseInt(numberOfPoints.value, 10) / 1000;
-
+        memory.innerHTML = parseInt(numberOfPoints.value, 10) * __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* OBJECTMEMORY */] / 1000000;
     }, false);
 
 
 };
 
-
 gameOrder();
+
+
+
 
 /***/ }),
 /* 178 */
@@ -23851,7 +23861,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n  font-family: 'Arvo', serif;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  padding-left: 3px;\n  padding-right: 3px;\n  padding-bottom: 2px;\n  vertical-align: top;\n  display: block;\n  width: 80%;\n  word-break: break-all;\n}\n.article__approaches_bad {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_good {\n  border: solid 1.5px #3498db;\n}\n", ""]);
+exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article_conclusion {\n  margin-top: 10%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n  font-family: 'Arvo', serif;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  padding-left: 3px;\n  padding-right: 3px;\n  padding-bottom: 2px;\n  vertical-align: top;\n  display: block;\n  width: 80%;\n  word-break: break-all;\n}\n.article__approaches_bad {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_good {\n  border: solid 1.5px #3498db;\n}\n", ""]);
 
 // exports
 
