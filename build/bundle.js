@@ -10066,7 +10066,7 @@ const gameOrder = () => {
     KconstantsText = Array.prototype.slice.call(KconstantsText);
     numberOfPointsText = Array.prototype.slice.call(numberOfPointsText);
     KconstantsText.map((el) => el.innerHTML = __WEBPACK_IMPORTED_MODULE_5__consts__["a" /* K */] / 1000);
-    memory.innerHTML = parseInt(numberOfPoints.value, 10) * __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* OBJECTMEMORY */] / 1000000;
+    memory.innerHTML = (parseInt(numberOfPoints.value, 10) * __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* OBJECTMEMORY */] / 1000000).toFixed(3);
 
     let world = new __WEBPACK_IMPORTED_MODULE_0__World__["a" /* default */](algorithms, new __WEBPACK_IMPORTED_MODULE_4__SVG_NumberVisualiserSVG__["a" /* default */]()).generatePoints(parseInt(numberOfPoints.value, 10));
 
@@ -10092,7 +10092,7 @@ const gameOrder = () => {
         numberOfPointsText.map((el) => el.innerHTML = numberOfPoints.value);
         resultBadText.innerHTML = __WEBPACK_IMPORTED_MODULE_5__consts__["a" /* K */] * parseInt(numberOfPoints.value, 10) * parseInt(numberOfPoints.value, 10) / 1000;
         resultGoodText.innerHTML = __WEBPACK_IMPORTED_MODULE_5__consts__["a" /* K */] * 2 * parseInt(numberOfPoints.value, 10) / 1000;
-        memory.innerHTML = parseInt(numberOfPoints.value, 10) * __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* OBJECTMEMORY */] / 1000000;
+        memory.innerHTML = (parseInt(numberOfPoints.value, 10) * __WEBPACK_IMPORTED_MODULE_5__consts__["c" /* OBJECTMEMORY */] / 1000000).toFixed(3);
     }, false);
 
 
@@ -23726,7 +23726,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  font-family: 'Lato', sans-serif;\n  background-color: #fcfcfc;\n}\n", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  font-family: 'Lato', sans-serif;\n  background-color: #fcfcfc;\n}\ncode {\n  font-family: monospace;\n}\n", ""]);
 
 // exports
 
@@ -23861,7 +23861,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article_conclusion {\n  margin-top: 10%;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n  font-family: 'Arvo', serif;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n.article__approaches {\n  padding-left: 3px;\n  padding-right: 3px;\n  padding-bottom: 2px;\n  vertical-align: top;\n  display: block;\n  width: 80%;\n  word-break: break-all;\n}\n.article__approaches_bad {\n  border: solid 1.5px #e74c3c;\n}\n.article__approaches_good {\n  border: solid 1.5px #3498db;\n}\n", ""]);
+exports.push([module.i, ".article {\n  margin-top: 3%;\n  margin-left: 27%;\n  margin-right: 27%;\n}\n.article_conclusion {\n  margin-top: 10%;\n}\n.article__code {\n  padding-left: 3px;\n  padding-right: 3px;\n  padding-bottom: 2px;\n  vertical-align: top;\n  display: block;\n  width: 80%;\n  word-break: break-all;\n}\n.article__code_slow {\n  border: solid 1.5px #e74c3c;\n}\n.article__code_fast {\n  border: solid 1.5px #3498db;\n}\n.article__tittle {\n  margin-bottom: 10px;\n  color: #303030;\n  font-family: 'Arvo', serif;\n}\n.article__tittle_bold {\n  margin-top: 2px;\n}\n.article__text {\n  color: #404040;\n}\n", ""]);
 
 // exports
 

@@ -30,7 +30,7 @@ const gameOrder = () => {
     KconstantsText = Array.prototype.slice.call(KconstantsText);
     numberOfPointsText = Array.prototype.slice.call(numberOfPointsText);
     KconstantsText.map((el) => el.innerHTML = K / 1000);
-    memory.innerHTML = parseInt(numberOfPoints.value, 10) * OBJECTMEMORY / 1000000;
+    memory.innerHTML = (parseInt(numberOfPoints.value, 10) * OBJECTMEMORY / 1000000).toFixed(3);
 
     let world = new World(algorithms, new NumberVisualiserSVG()).generatePoints(parseInt(numberOfPoints.value, 10));
 
@@ -56,7 +56,7 @@ const gameOrder = () => {
         numberOfPointsText.map((el) => el.innerHTML = numberOfPoints.value);
         resultBadText.innerHTML = K * parseInt(numberOfPoints.value, 10) * parseInt(numberOfPoints.value, 10) / 1000;
         resultGoodText.innerHTML = K * 2 * parseInt(numberOfPoints.value, 10) / 1000;
-        memory.innerHTML = parseInt(numberOfPoints.value, 10) * OBJECTMEMORY / 1000000;
+        memory.innerHTML = (parseInt(numberOfPoints.value, 10) * OBJECTMEMORY / 1000000).toFixed(3);
     }, false);
 
 
