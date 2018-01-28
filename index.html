@@ -38,7 +38,7 @@
         Find numbers which are missing and count occurrence of each present number.
     </p>
     <h3 class="article__tittle">Approaches</h3>
-    <pre class="article__code article__code_slow"><code>RES = [ ]
+    <pre class="article__approaches article__approaches_slow"><code>RES = [ ]
 FOR i = 1 TO N
     COUNT = 0
     FOR j = 0 TO N - 1
@@ -48,12 +48,12 @@ FOR i = 1 TO N
     <p class="article__text">
         Rough complexity of this approach is O(n&sup2;&middot;K&middot;C), where K is time to perform one action.
     </p>
-    <pre class="article__code article__code_fast"><code>RES = [ ]
-        COUNTER = [ N elements ]
-        FOR i = 0 TO N - 1
-            COUNTER[ numbers[ i ] - 1 ]++
-        FOR i = 0 TO N
-            RES.add( i + 1, COUNTER[ i ] )</code></pre>
+    <pre class="article__approaches article__approaches_fast"><code>RES = [ ]
+COUNTER = [ N elements ]
+FOR i = 0 TO N - 1
+    COUNTER[ numbers[ i ] - 1 ]++
+FOR i = 0 TO N
+    RES.add( i + 1, COUNTER[ i ] )</code></pre>
     <p class="article__text">
         Rough complexity of this approach is O(2&middot;n&middot;K&middot;C), where K is time to perform one action.
         However, this approach needs additional memory equal to O(n).
@@ -65,14 +65,14 @@ FOR i = 1 TO N
         One empty object in array takes 65.72 bytes.<br>
         Number of points, n = <span class="article__points">100</span>.
     </p>
-    <p class="article__approaches article__approaches_bad">
+    <p class="article__approaches article__approaches_slow">
         O(n&sup2;&middot;K&middot;C) = <span class="article__points">100</span>&sup2; &middot; <span
             class="article__k"></span>
         &middot; C
         &asymp; <span class="article__result_bad">10</span> &middot; C <br>
         Additional memory ~ 0 mb<br>
     </p>
-    <p class="article__approaches article__approaches_good">
+    <p class="article__approaches article__approaches_fast">
         O(2&middot;n&middot;K&middot;C) = 2 &middot; <span class="article__points">100</span> &middot; <span
             class="article__k"></span> &middot; C
         &asymp; <span class="article__result_good">0.2</span> &middot; C<br>
@@ -83,21 +83,7 @@ FOR i = 1 TO N
     <div class="settings">
         <h4 class="settings__tittle">Points</h4>
         <input class="settings__points" type="range" min="0" max="400"
-               step="1" value="100" list="points">
-        <!--fix datalist isn't displayed -->
-        <datalist id="points">
-            <option value="0" label="0">
-            <option value="10">
-            <option value="20">
-            <option value="30">
-            <option value="40">
-            <option value="50" label="50">
-            <option value="60">
-            <option value="70">
-            <option value="80">
-            <option value="90">
-            <option value="100" label="100">
-        </datalist>
+               step="1" value="100">
     </div>
 </div>
 <button class="page__start-button">START</button>
@@ -107,7 +93,8 @@ FOR i = 1 TO N
     <h3 class="article__tittle">Conclusion</h3>
     <p class="article__text">
         The purpose of this page was not to teach anyone with new algorithms.
-        The only purpose was to encourage reader to think first what would one rather sacrifice, speed or memory.
+        The only purpose was to encourage the reader to think first what rather has to be sacrificed either speed or
+        memory.
     </p>
 </article>
 <script src="build/bundle.js"></script>
