@@ -5559,11 +5559,14 @@ class AlgoSVG {
             .attr("class", "content__algo content__algo_" + this.modifier)
             .attr("preserveAspectRatio", "xMinYMin");
         // .attr("viewBox", `0 0 ${this.height} ${this.width}`);
+
+
         const {height, width} = document.querySelector(".content__algo").getBoundingClientRect();
         this.height = height;
         this.width = width;
 
         this.resultArea = document.createElement("div");
+        this.resultArea.classList.add("result");
         this.resultArea.classList.add("result__" + modifier);
         resDOMNode.appendChild(this.resultArea);
 
@@ -5575,7 +5578,7 @@ class AlgoSVG {
     }
 
     clearResultArea() {
-        document.querySelector(".result__" + this.modifier).innerHTML = "";
+        this.resultArea.innerHTML = "";
     }
 
 
@@ -10071,6 +10074,7 @@ const gameOrder = () => {
         numberOfPoints.disabled = true;
         resetButton.classList.add("page__start-button_disabled");
         world
+            .renderAllNumbers()
             .action()
             .then((el) => {
                 resetButton.classList.remove("page__start-button_disabled");
@@ -10082,7 +10086,6 @@ const gameOrder = () => {
     }, false);
 
     numberOfPoints.addEventListener("input", () => {
-
         world
             .clearArea()
             .generatePoints(parseInt(numberOfPoints.value, 10));
@@ -10131,7 +10134,8 @@ class World {
     }
 
     generatePoints(numberOfNumbers) {
-        this.numbers = new Array(numberOfNumbers)
+        this.numberOfNumbers = numberOfNumbers;
+        this.numbers = new Array(this.numberOfNumbers)
             .fill()
             .map((el, i) =>
                 new __WEBPACK_IMPORTED_MODULE_0__MyNumber__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].width - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(__WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */], this.algorithms[0].height - __WEBPACK_IMPORTED_MODULE_2__consts__["b" /* MARGINFROMSIDES */]), Object(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* getRandom */])(1, numberOfNumbers + 1)));
@@ -10141,31 +10145,40 @@ class World {
                 this.visualiser.draw(elem.context, el);
             })
         });
+
         return this;
     };
 
-    renderNumber(number, modifier) {
-        let nd = document.createElement("span");
-        nd.textContent = number;
-        nd.classList.add("result__missing-numbers");
-        nd.classList.add(modifier);
-        return nd;
+    renderAllNumbers() {
+        this.algorithms.map((algo) => {
+            algo.clearResultArea();
+            new Array(this.numberOfNumbers)
+                .fill()
+                .map((el, i) => {
+                    let nd = document.createElement("span");
+                    nd.textContent = i + 1;
+                    nd.classList.add("result__numbers");
+                    nd.classList.add("result__numbers_" + algo.modifier);
+                    algo.resultArea.appendChild(nd);
+                })
+        });
+        return this;
+
     }
 
+
     async action() {
-        this.algorithms.map((el) => el.clearResultArea());
         await Promise
             .all(this.algorithms.map(alg => alg.perform(this.numbers, this.visualiser)
                 .then(value => {
+                        let nums = alg.resultArea.childNodes;
                         return value
-                            .map(el => this.renderNumber(el, "result__missing-numbers_" + alg.modifier))
-                            .map(el => alg.resultArea.appendChild(el))
+                            .map(elem => nums[elem - 1].classList.add("result__numbers_missing"))
                     }
                 )));
         return this;
     }
 }
-
 
 
 /* harmony default export */ __webpack_exports__["a"] = (World);
@@ -10198,7 +10211,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".result {\n  text-align: center;\n  margin: 0.1em;\n}\n.result__missing-numbers {\n  color: #ecf0f1;\n  border-radius: 2px;\n  margin: 0.1em;\n  padding: 0.2em;\n  display: inline-block;\n}\n.result__missing-numbers_bad {\n  background-color: #e74c3c;\n}\n.result__missing-numbers_good {\n  background-color: #3498db;\n}\n", ""]);
+exports.push([module.i, ".result {\n  text-align: center;\n  margin: 11px 0.1em 0.1em;\n}\n.result__numbers {\n  color: #ecf0f1;\n  border-radius: 2px;\n  margin: 0.1em;\n  padding: 0.2em;\n  display: inline-block;\n  font-size: 12px;\n}\n.result__numbers_bad {\n  background-color: #e74c3c;\n}\n.result__numbers_good {\n  background-color: #3498db;\n}\n.result__numbers_missing {\n  background-color: grey;\n}\n", ""]);
 
 // exports
 

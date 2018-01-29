@@ -1,21 +1,29 @@
 .result {
-    text-align: center;
+  text-align: center;
+  margin: 11px 0.1em 0.1em;
+
+
+
+
+  &__numbers {
+    color: #ecf0f1;
+    border-radius: 2px;
     margin: 0.1em;
+    padding: 0.2em;
+    display: inline-block;
+    font-size: 12px;
 
-    &__good {}
-    &__bad {}
-
-    &__missing-numbers {
-        color: #ecf0f1;
-        border-radius: 2px;
-        margin: 0.1em;
-        padding: 0.2em;
-
-        display: inline-block;
-
-        &_bad  { background-color: #e74c3c; }
-        &_good { background-color: #3498db; }
+    &_bad {
+      background-color: #e74c3c;
     }
+    &_good {
+      background-color: #3498db;
+    }
+    &_missing {
+      background-color: grey;
+    }
+
+  }
 
 }
 

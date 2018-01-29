@@ -19,7 +19,8 @@ class World {
     }
 
     generatePoints(numberOfNumbers) {
-        this.numbers = new Array(numberOfNumbers)
+        this.numberOfNumbers = numberOfNumbers;
+        this.numbers = new Array(this.numberOfNumbers)
             .fill()
             .map((el, i) =>
                 new MyNumber(getRandom(MARGINFROMSIDES, this.algorithms[0].width - MARGINFROMSIDES), getRandom(MARGINFROMSIDES, this.algorithms[0].height - MARGINFROMSIDES), getRandom(1, numberOfNumbers + 1)));
@@ -29,31 +30,40 @@ class World {
                 this.visualiser.draw(elem.context, el);
             })
         });
+
         return this;
     };
 
-    renderNumber(number, modifier) {
-        let nd = document.createElement("span");
-        nd.textContent = number;
-        nd.classList.add("result__missing-numbers");
-        nd.classList.add(modifier);
-        return nd;
+    renderAllNumbers() {
+        this.algorithms.map((algo) => {
+            algo.clearResultArea();
+            new Array(this.numberOfNumbers)
+                .fill()
+                .map((el, i) => {
+                    let nd = document.createElement("span");
+                    nd.textContent = i + 1;
+                    nd.classList.add("result__numbers");
+                    nd.classList.add("result__numbers_" + algo.modifier);
+                    algo.resultArea.appendChild(nd);
+                })
+        });
+        return this;
+
     }
 
+
     async action() {
-        this.algorithms.map((el) => el.clearResultArea());
         await Promise
             .all(this.algorithms.map(alg => alg.perform(this.numbers, this.visualiser)
                 .then(value => {
+                        let nums = alg.resultArea.childNodes;
                         return value
-                            .map(el => this.renderNumber(el, "result__missing-numbers_" + alg.modifier))
-                            .map(el => alg.resultArea.appendChild(el))
+                            .map(elem => nums[elem - 1].classList.add("result__numbers_missing"))
                     }
                 )));
         return this;
     }
 }
-
 
 
 export default World;

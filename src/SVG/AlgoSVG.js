@@ -9,11 +9,14 @@ class AlgoSVG {
             .attr("class", "content__algo content__algo_" + this.modifier)
             .attr("preserveAspectRatio", "xMinYMin");
         // .attr("viewBox", `0 0 ${this.height} ${this.width}`);
+
+
         const {height, width} = document.querySelector(".content__algo").getBoundingClientRect();
         this.height = height;
         this.width = width;
 
         this.resultArea = document.createElement("div");
+        this.resultArea.classList.add("result");
         this.resultArea.classList.add("result__" + modifier);
         resDOMNode.appendChild(this.resultArea);
 
@@ -25,7 +28,7 @@ class AlgoSVG {
     }
 
     clearResultArea() {
-        document.querySelector(".result__" + this.modifier).innerHTML = "";
+        this.resultArea.innerHTML = "";
     }
 
 

@@ -39,6 +39,7 @@ const gameOrder = () => {
         numberOfPoints.disabled = true;
         resetButton.classList.add("page__start-button_disabled");
         world
+            .renderAllNumbers()
             .action()
             .then((el) => {
                 resetButton.classList.remove("page__start-button_disabled");
@@ -50,7 +51,6 @@ const gameOrder = () => {
     }, false);
 
     numberOfPoints.addEventListener("input", () => {
-
         world
             .clearArea()
             .generatePoints(parseInt(numberOfPoints.value, 10));
