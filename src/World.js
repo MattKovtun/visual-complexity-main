@@ -45,10 +45,9 @@ class World {
         await Promise
             .all(this.algorithms.map(alg => alg.perform(this.numbers, this.visualiser)
                 .then(value => {
-                        let elem = document.querySelector(".result__" + alg.modifier);
                         return value
                             .map(el => this.renderNumber(el, "result__missing-numbers_" + alg.modifier))
-                            .map(el => elem.appendChild(el))
+                            .map(el => alg.resultArea.appendChild(el))
                     }
                 )));
         return this;

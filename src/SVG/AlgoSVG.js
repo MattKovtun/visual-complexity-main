@@ -33,10 +33,6 @@ class AlgoSVG {
 
     }
 
-
-    createResultingArea(domNode) {
-
-    }
 }
 
 

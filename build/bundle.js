@@ -5583,10 +5583,6 @@ class AlgoSVG {
 
     }
 
-
-    createResultingArea(domNode) {
-
-    }
 }
 
 
@@ -10050,6 +10046,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 const gameOrder = () => {
     // TODO: change display, for gray numbers which are missing and colored which are present
+    // TODO: generate all points and then just display part of them
     const algorithms = [
         new __WEBPACK_IMPORTED_MODULE_2__BadAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["d" /* default */].bad),
         new __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["d" /* default */].good)
@@ -10160,10 +10157,9 @@ class World {
         await Promise
             .all(this.algorithms.map(alg => alg.perform(this.numbers, this.visualiser)
                 .then(value => {
-                        let elem = document.querySelector(".result__" + alg.modifier);
                         return value
                             .map(el => this.renderNumber(el, "result__missing-numbers_" + alg.modifier))
-                            .map(el => elem.appendChild(el))
+                            .map(el => alg.resultArea.appendChild(el))
                     }
                 )));
         return this;

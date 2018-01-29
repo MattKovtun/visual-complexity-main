@@ -14,6 +14,7 @@ import "../style/article.less"
 
 const gameOrder = () => {
     // TODO: change display, for gray numbers which are missing and colored which are present
+    // TODO: generate all points and then just display part of them
     const algorithms = [
         new BadAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.bad),
         new GoodAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.good)
