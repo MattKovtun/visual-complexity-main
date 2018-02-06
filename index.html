@@ -33,7 +33,7 @@
     <p class="article__text">
         This task wasn't really interesting so I modified it a bit,
         to be a little bit more complex and thought-provoking.
-        Exists an array with 99 numbers ranged from 1 to 100.
+        Exists an array with 99 numbers ranged from 1 to 100, entries can be same.
         Some numbers are missing to complete the set of 100 numbers.
         Find numbers which are missing and count occurrence of each present number.
     </p>
@@ -80,13 +80,12 @@ FOR i = 0 TO N
     </p>
 </article>
 <div class="page__content">
-    <div class="settings">
-        <h4 class="settings__tittle">Points</h4>
-        <input class="settings__points" type="range" min="0" max="400"
-               step="1" value="100">
-    </div>
 </div>
-<button class="page__start-button">START</button>
+<div class="settings"><input class="settings__points" type="range" min="0" max="400"
+           step="1" value="100">
+<button class="settings__start-button">START</button>
+</div>
+
 <section class="result">
 </section>
 <article class="article article_conclusion">

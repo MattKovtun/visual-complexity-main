@@ -10048,13 +10048,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const gameOrder = () => {
-    // TODO: change display, for gray numbers which are missing and colored which are present
     // TODO: generate all points and then just display part of them
+    // TODO: fix 1 and 10
     const algorithms = [
         new __WEBPACK_IMPORTED_MODULE_2__BadAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["d" /* default */].bad),
         new __WEBPACK_IMPORTED_MODULE_1__GoodAlgo__["a" /* default */](Object(__WEBPACK_IMPORTED_MODULE_3_d3__["a" /* select */])(".page__content"), document.querySelector(".result"), __WEBPACK_IMPORTED_MODULE_5__consts__["d" /* default */].good)
     ];
-    let resetButton = document.querySelector(".page__start-button");
+    let resetButton = document.querySelector(".settings__start-button");
     let numberOfPoints = document.querySelector(".settings__points");
     let numberOfPointsText = document.querySelectorAll(".article__points");
     let resultBadText = document.querySelector(".article__result_bad");
@@ -10072,12 +10072,12 @@ const gameOrder = () => {
 
     resetButton.addEventListener("click", () => {
         numberOfPoints.disabled = true;
-        resetButton.classList.add("page__start-button_disabled");
+        resetButton.classList.add("settings__start-button_disabled");
         world
             .renderAllNumbers()
             .action()
             .then((el) => {
-                resetButton.classList.remove("page__start-button_disabled");
+                resetButton.classList.remove("settings__start-button_disabled");
                 return el;
             })
             .then((el) => el.clearArea())
@@ -10211,7 +10211,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".result {\n  text-align: center;\n  margin: 11px 0.1em 0.1em;\n}\n.result__numbers {\n  color: #ecf0f1;\n  border-radius: 2px;\n  margin: 0.1em;\n  padding: 0.2em;\n  display: inline-block;\n  font-size: 12px;\n}\n.result__numbers_bad {\n  background-color: #e74c3c;\n}\n.result__numbers_good {\n  background-color: #3498db;\n}\n.result__numbers_missing {\n  background-color: grey;\n}\n", ""]);
+exports.push([module.i, ".result {\n  text-align: center;\n  margin: 30px 0.1em 0.1em;\n}\n.result__numbers {\n  color: #ecf0f1;\n  border-radius: 2px;\n  margin: 0.1em;\n  padding: 0.2em;\n  display: inline-block;\n  font-size: 12px;\n}\n.result__numbers_bad {\n  background-color: #e74c3c;\n}\n.result__numbers_good {\n  background-color: #3498db;\n}\n.result__numbers_missing {\n  background-color: #cacfd2;\n  color: #fff;\n  opacity: 0.7;\n}\n", ""]);
 
 // exports
 
@@ -10396,7 +10396,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".content__algo {\n  width: 48.5%;\n  height: 55vh;\n  margin-top: 5px;\n}\n.content__algo:nth-child(2n + 1) {\n  margin-left: 3%;\n}\n.content__algo_bad {\n  outline: #e74c3c 1.5px solid;\n}\n.content__algo_good {\n  outline: #3498db 1.5px solid;\n}\n", ""]);
+exports.push([module.i, ".content__algo {\n  width: 48.5%;\n  height: 55vh;\n  margin-top: 5px;\n}\n.content__algo_bad {\n  outline: #e74c3c 1.5px solid;\n}\n.content__algo_good {\n  outline: #3498db 1.5px solid;\n  margin-left: 3%;\n}\n", ""]);
 
 // exports
 
@@ -23780,7 +23780,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".page {\n  padding: 20px 30px 80px;\n}\n.page__tittle {\n  font-family: 'Arvo', serif;\n  text-align: center;\n  color: #000;\n  margin: 0 auto auto;\n}\n.page__start-button {\n  border-radius: 3px;\n  border: 1px solid black;\n  background-color: #2980b9;\n  margin-top: 5px;\n}\n.page__start-button_disabled {\n  display: none;\n}\n", ""]);
+exports.push([module.i, ".page {\n  padding: 20px 30px 80px;\n}\n.page__tittle {\n  font-family: 'Arvo', serif;\n  text-align: center;\n  color: #000;\n  margin: 0 auto auto;\n}\n.page__content {\n  margin-bottom: 4px;\n}\n", ""]);
 
 // exports
 
@@ -23825,7 +23825,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, ".settings {\n  text-align: right;\n  margin-bottom: 13px;\n  margin-top: 30px;\n}\n.settings__tittle {\n  color: #000;\n  padding: 0;\n  margin: 0;\n  display: inline-block;\n}\n.settings__points {\n  padding: 0;\n  margin: 0 0 0 15px;\n  width: 10%;\n}\n.settings__points::-moz-range-thumb {\n  box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;\n  border: 1px solid #000000;\n  height: 13px;\n  width: 7px;\n  border-radius: 3px;\n  background: #0287d0;\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, ".settings {\n  display: flex;\n  align-items: center;\n  margin-top: 15px;\n}\n.settings__points {\n  padding: 0;\n  width: 6%;\n  margin-left: auto;\n}\n.settings__points::-moz-range-thumb {\n  box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;\n  border: 1px solid #000000;\n  height: 13px;\n  width: 7px;\n  border-radius: 3px;\n  background: #0287d0;\n  cursor: pointer;\n}\n.settings__start-button {\n  border-radius: 3px;\n  border: 1px solid black;\n  background-color: #2980b9;\n}\n.settings__start-button_disabled {\n  display: none;\n}\n", ""]);
 
 // exports
 

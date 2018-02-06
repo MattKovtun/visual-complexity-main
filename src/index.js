@@ -13,13 +13,13 @@ import "../style/result.less"
 import "../style/article.less"
 
 const gameOrder = () => {
-    // TODO: change display, for gray numbers which are missing and colored which are present
     // TODO: generate all points and then just display part of them
+    // TODO: fix 1 and 10
     const algorithms = [
         new BadAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.bad),
         new GoodAlgo(select(".page__content"), document.querySelector(".result"), Modifiers.good)
     ];
-    let resetButton = document.querySelector(".page__start-button");
+    let resetButton = document.querySelector(".settings__start-button");
     let numberOfPoints = document.querySelector(".settings__points");
     let numberOfPointsText = document.querySelectorAll(".article__points");
     let resultBadText = document.querySelector(".article__result_bad");
@@ -37,12 +37,12 @@ const gameOrder = () => {
 
     resetButton.addEventListener("click", () => {
         numberOfPoints.disabled = true;
-        resetButton.classList.add("page__start-button_disabled");
+        resetButton.classList.add("settings__start-button_disabled");
         world
             .renderAllNumbers()
             .action()
             .then((el) => {
-                resetButton.classList.remove("page__start-button_disabled");
+                resetButton.classList.remove("settings__start-button_disabled");
                 return el;
             })
             .then((el) => el.clearArea())
